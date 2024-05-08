@@ -1,0 +1,97 @@
+{% for item in data %}
+	<tr>
+		<td>
+			<span class="text-dark fw-bolder d-block mb-1 fs-6">{{item[0]}}</span>
+		</td>
+		<td>
+			<span class="text-dark fw-bolder d-block mb-1 fs-6">{{item[1]}}</span>
+		</td>
+		<td>
+			{% if item[2] == "1" %}
+			<span class="badge badge-light-success">Trained</span>
+			{% elif item[2] == "3" %}
+			<span class="badge badge-light-primary">In Process</span>
+			{% else %}
+			<span class="badge badge-light-danger">Training failed</span>
+			{% endif %}
+		</td>
+		<td>
+			<span class="text-dark fw-bolder d-block mb-1 fs-6">{{item[3]}}/{{item[4]}}</span>
+		</td>
+		<td>
+			<span class="text-dark fw-bolder d-block mb-1 fs-6">{% if item[6]=="2" %} Staging {% elif item[6] == '3' %} Both {% elif item[6] == '1' %} Production {% else %}No{%endif%}</span>
+		</td>
+		<td>
+			<a href="javascript:void(0)" onclick="view_intent('{{item[7]}}','1')"
+					  class="circle">{{item[8]}}</a>
+		</td>
+		<td>
+			<a href="javascript:void(0)" onclick="view_intent('{{item[7]}}','2')"
+					class="circle">{{item[9]}}</a>
+		</td>
+		<td>
+			<a href="javascript:void(0)" onclick="view_intent('{{item[7]}}','3')"
+					class="circle" >{{item[10]}}</a>
+		</td>
+		<td>
+			<a href="javascript:void(0)" onclick="view_intent('{{item[7]}}','4')"
+					class="circle" >{{item[11]}}</a>
+		</td>
+		<td>
+			<div class="card-toolbar">
+				{% if session.role == "2" %}
+					{% if item[6] == "3" or item[6] == "1" %}
+						<button disabled
+							class="btn btn-sm btn-primary" style="margin-bottom: 10px;margin-left: 10px;width: 80%;">
+							On Production</button>
+					{% elif item[13] == "4" %}
+						<button disabled
+							class="btn btn-sm btn-danger" style="margin-left: 10px;width: 80%;">Rejected</button>
+					{% elif item[13] == "5" %}
+						<a href="javascript:void(0) " onclick="submit_stg('{{item[7]}}')"
+							class="btn btn-sm btn-success" style="margin-left: 10px;width: 80%;">Deploy On Staging</a>
+					{%elif (stag_model_count != 0) and item[6] == "2" and item[13] == "0" %}
+						<a href="javascript:void(0)" onclick="submit_approval('{{item[12]}}','{{item[13]}}')"
+						class="btn btn-sm btn-primary" style="margin-left: 10px;width: 80%;">Send for Approval</a>
+						<a href="javascript:void(0)" onclick="reject_intent('{{item[12]}}','{{item[1]}}')"
+							class="btn btn-sm btn-danger" style="margin-top: 10px;margin-left: 10px;width: 80%;">Reject</a>
+					{%elif stag_model_count == 0 %}
+						<a href="javascript:void(0)" onclick="submit_stg('{{item[7]}}')"
+						class="btn btn-sm btn-warning" style="margin-left: 10px;margin-bottom: 10px;width: 80%;">Staging</a>
+					{%elif (stag_model_count != 0) and item[13] == "0" %}
+						<a href="javascript:void(0)" onclick="submit_stg('{{item[7]}}')"
+						class="btn btn-sm btn-warning" style="margin-left: 10px;margin-bottom: 10px;width: 80%;">
+							Deploy On Staging</a>
+					{%elif (stag_model_count != 0) and item[13] == "2" %}
+						<button disabled class="btn btn-sm btn-warning"
+						   style="margin-left: 10px;width: 80%;">Pending</button>
+					{%elif (stag_model_count != 0) and item[13] == "6" %}
+					{% endif %}
+				{% else %}
+					{%if item[6] == "3" or item[6] == "1" %}
+						<button
+							class="btn btn-sm btn-primary" style="margin-bottom: 10px;margin-left: 10px;width: 80%;" disabled>On Production</button>
+					{% elif item[13] == "5" %}
+						<a href="javascript:void(0) " onclick="submit_prod('{{item[7]}}')"
+							class="btn btn-sm btn-success" style="margin-left: 10px;width: 80%;">Deploy On Production</a>
+					{% elif item[13] == "4" %}
+						<button
+							class="btn btn-sm btn-danger" style="margin-left: 10px;width: 80%;" disabled>Rejected</button>
+					{%elif item[6] == "2" and item[13] == "0" %}
+						<button
+							class="btn btn-sm btn-warning" style="margin-bottom: 10px;margin-left: 10px;width: 80%;" disabled>On Staging</button>
+					{%elif item[6] == "2" and item[13] == "2" %}
+						<a href="javascript:void(0)" onclick="submit_prod('{{item[7]}}')"
+							class="btn btn-sm btn-primary" style="margin-bottom: 10px;margin-left: 10px;width: 80%;">Deploy On Production</a>
+						<a href="javascript:void(0)" onclick="reject_intent('{{item[12]}}','{{item[1]}}')"
+							class="btn btn-sm btn-danger" style="margin-left: 10px;width: 80%;">Reject</a>
+					{% else %}
+						<a href="javascript:void(0)" onclick="submit_stg('{{item[7]}}')"
+						class="btn btn-sm btn-warning" style="margin-left: 10px;margin-bottom: 10px;width: 80%;">
+							Deploy on Staging</a>
+					{% endif %}
+				{% endif %}
+			</div>
+		</td>
+	</tr>
+{% endfor %}

@@ -1,0 +1,224 @@
+.create-intent-main {
+   .nav{
+    margin: 0px 0px 16px 0px!important;
+    .nav-item {
+        .active {
+            border-bottom: 3px solid #FF6060 !important;
+            color: #FF4141 !important;
+        }
+
+        .nav-link {
+            border: none;
+            background: none;
+            font-size: 18px;
+            font-weight: bold;
+            line-height: 24px;
+            color: #A7A7A7;
+            padding: 8px 16px;
+            @include breakpoint(mobile-l) {
+                font-size: 13px;
+            } 
+        }
+
+        &:first-child {
+            margin-right: 20px;
+
+        }
+    }
+}
+
+    .add-singleintent {
+        width: 100%;
+        background-color: $white-color;
+        border-radius: 20px;
+        padding: 20px;
+
+        &__title {
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 27px;
+            color: #333333;
+        }
+        &__left{
+            .form-field{
+                margin-top: 20px;
+                &:first-child{
+                    margin-top: 0px;
+                }
+            }
+        }
+        &__right{
+            .form-field{
+                margin-top: 20px;
+                &:first-child{
+                    margin-top: 0px;
+                }
+            }
+        }
+        .form-label {
+            font-size: 15px;
+            line-height: 20px;
+            color: #333333;
+            font-weight: 700;
+            span {
+                color: #FF4141;
+
+            }
+        }
+
+        .form-control {
+            background-color: #F5F5F5;
+            font-size: 14px;
+            line-height: 20px;
+            color: #333333;
+            font-weight: 400;
+            padding: 8px 12px;
+            border-radius: 10px;
+        }
+        .form-select{
+            background-image: url(../../assets/img/icons/select_arrow.svg);
+            background-repeat: no-repeat;
+            background-position: 96% 15px;
+            background-size: 10px;
+            appearance: none;
+            -webkit-appearance: none;
+        }
+        .add-new-wrapper {
+            display: flex;
+            justify-content: end;
+            .add-new {
+                font-size: 12px;
+                line-height: 16px;
+                color: #3C3B3B;
+                font-weight: 400;
+                margin-top: 10px;
+                text-transform: uppercase;
+                cursor: pointer;
+                span{
+                    font-size: 1rem;
+                }
+            }
+        }
+
+        .btn-wrapper {
+            display: flex;
+            justify-content: end;
+        }
+        .description {
+            resize: none;
+        }
+    }
+}
+
+// ======================
+.add-bulkintent {
+    width: 100%;
+    .upload-section{
+        background-color: #ffffff;
+        border-radius: 20px;
+        padding: 20px;
+        margin-bottom: 15px;
+        &__title {
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 27px;
+            color: #333333;
+        }
+        .form-label{
+           font-size:15px;
+           line-height: 20px;
+           font-weight: 700;
+           color: #333333;
+        }
+        .form-control {
+            background-color: #F5F5F5;
+            font-size: 14px;
+            line-height: 20px;
+            color: #333333;
+            font-weight: 400;
+            padding: 9px 12px;
+            position: relative;
+            border-radius: 10px!important;
+            &::-webkit-file-upload-button{
+                display: none;
+            }
+        }
+        .browse-btn{
+            border: none;
+            background-color: #F5F5F5;
+            color: #F0252D;
+            position: absolute;
+            margin-top: 9px;
+            right: 10px;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 20px;
+            z-index: 10;
+        }
+        .btn-wrapper{
+            display: flex;
+            align-items:center;
+            padding-top: 15px;
+            @include breakpoint(tablet) {
+                padding-top: 0px;
+                button{
+                    margin-left: 0px!important;
+                }
+            }
+        }
+        .supported-file{
+            font-size: 14px;
+            line-height: 20px;
+            color: $secondary-color;
+            @include breakpoint(tablet) {
+                margin-top: 10px;
+            }
+        }
+    }
+    .table-section{
+        background-color: #ffffff;
+        border-radius: 20px;
+        padding: 20px 0;
+        margin-bottom: 15px;
+    }
+}
+
+// ========create-intent-5=====
+.upload-field-wrapper{
+    .form-control {
+        background-color: #F5F5F5;
+        font-size: 14px;
+        line-height: 20px;
+        color: #333333;
+        font-weight: 400;
+        padding: 9px 12px;
+        position: relative;
+        border-radius: 10px!important;
+        &::-webkit-file-upload-button{
+            display: none;
+        }
+    }
+    .browse-btn{
+        border: none;
+        background-color: #F5F5F5;
+        color: #F0252D;
+        position: absolute;
+        margin-top: 9px;
+        right: 10px;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 20px;
+
+    }
+    .minus-btn{
+        background-color:#FF0000;
+        margin-left:10px;
+        width: 40px;
+        height: 38px;
+        border: none;
+        border-radius:10px;
+        color: #ffffff;
+        display: flex;
+        align-items: center;
+    }
+}

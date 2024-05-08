@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    s
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/assets/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body>
+    <div class="container-fluid p-0">
+        <div class="d-flex flex-nowrap content-wrapper">
+            <div class="sidenav" id="sidenav">
+                <div class="logo-wrapper d-flex justify-content-between align-items-center">
+                   
+                
+                </div>
+                <div class="menu-wrapper">
+                    <ul class="navbar-nav">
+                        {% if session.role != "4" %}
+                        <li class="nav-item {% if session.status == 'dashboard' %} active {% endif %}">
+                            <a {% if session.role=="2" %}
+                                href="{{ url_for('admin.author_dashboard', _external=True, _scheme= config['SSL_SECURITY']) }}"
+                                {% elif session.role=="3" %}
+                                href="{{ url_for('admin.approver_dashboard', _external=True, _scheme= config['SSL_SECURITY']) }}"
+                                {% elif session.role=="1" %}
+                                href="{{ url_for('admin.dashboard', _external=True, _scheme= config['SSL_SECURITY']) }}"
+                                {% else %}
+                                href="{{ url_for('dashboard', _external=True, _scheme= config['SSL_SECURITY']) }}" {%
+                                endif %} class="nav-link">
+                               
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item {% if session.status == 'intent' %} active {% endif %}">
+                        
+                        
+                        {% endif %}
+                        <li class="nav-item {% if session.status == 'testing' %} active {% endif %}">
+                            <a href="{{ url_for('testing', _external=True, _scheme= config['SSL_SECURITY']) }}"
+                                class="nav-link">
+                                <img src="static/assets/img/icons/testing_environment.svg" alt="testing_environment">
+                                <span class="text-capitalize"> testing environment </span>
+                            </a>
+                        </li>
+                       
+                      
+
+                        <li class="nav-item {% if session.status == 'document' %} active {% endif %}">
+                            <a href="{{ url_for('document.add_document', _external=True, _scheme= config['SSL_SECURITY']) }}"
+                                class="nav-link">
+                                <img src="static/assets/img/icons/create_story.svg" alt="create story">
+                                <span class="text-capitalize"> Upload Document </span>
+                            </a>
+                        </li>
+
+                     
+                    </ul>
+                </div>
+            </div>
+            <div class="main-content" id="content">
+                <header class="dashboard-header w-100">
+                    <div class="d-flex justify-content-between align-items-baseline">
+                        <div class="dashboard__heading">
+                            <h1 class="text-capitalize mb-0"> Hi! <span>{{session.name}}</span>, </h1>
+                            <p> Have a great day ahead. </p>
+                        </div>
+
+                        
+                </header>
+                {% block content %} {% endblock content %}
+            </div>
+        </div>
+        <div class="blur-bg" id="blur-bg"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <script src="static/assets/js/logout_popup.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

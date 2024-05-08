@@ -1,0 +1,10 @@
+.main-content{
+    width: calc(100% - 240px);
+    height: 100%;
+    background: #F2F2F2;
+    padding: 44px 40px 44px 36px;
+    margin-left: auto;
+    @include breakpoint(tablet) {
+        width: 100%;
+    } 
+}

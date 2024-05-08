@@ -1,0 +1,29 @@
+.action-btn{
+    // background-color:#009ef7;
+    border: none;
+    outline: none;
+    color: $white-color;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    width: 90%;
+    text-align: center;
+    padding: 5px;
+    text-transform: capitalize;
+}
+.send-approval-btn{
+   background-image: linear-gradient(to right,#00b4d8,#0096c7);
+}
+.revoke-btn{
+    background-image: linear-gradient(to right,#ef233c,#d90429);
+}
+.staging-btn{
+    background-image: linear-gradient(to right,#efd84b,#e2a837); 
+}
+.production-btn{
+    background-image: linear-gradient(to right,#77f0bc,#57cc99);
+    
+}
+.approve-deploy{
+    background-image: linear-gradient(to right,#28b84a,#21973d);
+    
+}

@@ -1,0 +1,60 @@
+.countDetailsPopup{
+    padding: 16px 20px 20px 20px;
+    position: fixed;
+    top: 450px;
+    transform: translate(-50%, -50%);
+    left: 60%;
+    width: 329px;
+    z-index: 9999;
+    display: none;
+    @include breakpoint(tablet) {
+        left: 50%;
+    } 
+    @include breakpoint(mobile-l) {
+        width: 280px;
+    } 
+    @include breakpoint(mobile-m) {
+        width: 250px;
+    } 
+    &__title {
+        font-size: 2rem;
+        font-weight: 500;
+        line-height: 27px;
+        color: $secondary-color;
+        width: fit-content;
+    }
+    p{
+        font-size: 1.4rem;
+        font-weight: 400;
+        color: $secondary-color;
+        width: fit-content;
+        margin: 0;
+    }
+    &__close{
+        position: absolute;
+        top: 20px;
+        right: 5%;
+        cursor: pointer;
+    }
+    .active-intent-list{
+        margin: 18px 0 0 0;
+        padding: 0;
+        font-size: 1.4rem;
+        font-weight: 400;
+        color: $secondary-color;
+        list-style-type: none;
+    }
+}
+.active-model{
+    table{
+        tbody{
+            tr{
+                td{
+                    .staging-counts{
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}

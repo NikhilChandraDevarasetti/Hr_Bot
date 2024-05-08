@@ -1,0 +1,162 @@
+.intent-info{
+    margin: 29px 0;
+    .intents{
+        @include breakpoint(mobile-xl) {
+            justify-content: center;
+        } 
+        &__com{
+            background: $white-color;
+            border: 1px solid transparent;
+            border-radius: 20px;
+            padding: 16px 20px;
+            width: 313px;
+            height: 181px;
+            h3{
+                font-weight: 600;
+                font-size: 2rem;
+                color: $secondary-color;
+            }
+            .intents-counts{
+                display: block;
+                font-weight: 600;
+                font-size: 4rem;
+                position: relative;
+                &::after{
+                    content: '';
+                    position: absolute;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    width: 15px;
+                    height: 15px;
+                    margin: 13px 5px 0;
+                }
+            }
+        }
+        &__para{
+            font-weight: 400;
+            font-size: 1.6rem;
+            color: $secondary-color;
+        }
+        &__total{
+            h3{
+                padding: 0 0 14px 0;
+                border-bottom: 1px dashed rgba(112, 112, 112, 0.6);
+            }
+            .train-intent{
+                border-right: 1px dashed rgba(112, 112, 112, 0.6);
+                /* padding: 0 0 18px; */
+                p{
+                    margin-right: 30px;
+                    white-space: nowrap;
+                }
+                span{
+                    color: #3CB950;
+                    &::after{
+                        background-image: url(../../assets/img/icons/upward_arrow.svg);
+                    }
+                }
+            }
+            .untrain-intent{
+                padding: 0 0 0 16px;
+                p{
+                    white-space: nowrap;
+                }
+                span{
+                    color: #F12D22;
+                    &::after{
+                        background-image: url(../../assets/img/icons/downward_arrow.svg);
+                    }
+                }
+            }
+        }
+        &-badge{
+            padding: 3px 10px;
+            font-weight: 400;
+            font-size: 1.4rem;
+            top: 18px;
+            right: 20px;
+            border-radius: 4px;
+        }
+        &__active{
+            &-counts{
+                display: block;
+                font-weight: 600;
+                font-size: 4rem;
+                color: #3CB950;
+                line-height: 53px;
+            }
+            p{
+                width: 185px;
+            }
+            .intents-badge{
+                background: #E9FFF3;
+                color: #63D094;
+            }
+            &-second{
+                span{
+                    color: #1B9FF3;
+                }
+                .intents-badge{
+                    background: #F1FAFF;
+                    color: #1B9FF3;
+                }
+            }
+        }
+    }
+    &__model{
+        margin: 20px 0;
+        padding-top: 16px;
+        width: 100%;
+        h3{
+            font-weight: 500;
+            font-size: 2rem;
+            color: $secondary-color;
+            margin: 0 0 20px 20px;
+        }
+        table{
+            thead{
+                tr{
+                    &:nth-child(2){
+                        th{
+                            font-size: 1.2rem;
+                            font-weight: 400;
+                            padding-bottom: 8px;
+                        }
+                    }
+                }
+            }
+            tbody{
+                tr{
+                    td{
+                        &:nth-child(2){
+                            padding-left: 15px;
+                        }
+                        &:nth-child(4){
+                            padding-left: 15px;
+                        }
+                        &:nth-child(9){
+                            padding-left: 15px;
+                        }
+                        .status-badge-untrain{
+                            background: #ffe9e9;
+                            color: #d06363;
+                            padding: 7px;
+                            border-radius: 4px;
+                        }
+                        .status-badge{
+                            background: #E9FFF3;
+                            color: #63D094;
+                            padding: 7px;
+                            border-radius: 4px;
+                        }
+                        .staging-counts{
+                            background: #F9FBFC;
+                            padding: 6px;
+                            border-radius: 4px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

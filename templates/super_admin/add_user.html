@@ -1,0 +1,182 @@
+{% extends "layout/super_base.html" %}
+{% block content %}
+<style>
+	.has-error{
+	   border-color: red !important;
+	}
+</style>
+<div class="intent-info w-100">
+    <div class="custom-action-main">
+        <div class="custom-action">
+            <h4 class="custom-action__title">Create User</h4>
+            <form onsubmit="return validateForm()" class="row g-3" name="myform" id="kt_modal_new_target_form_single" action="{{ url_for('admin.add_user', _external=True, _scheme= config['SSL_SECURITY']) }}" method="post">
+
+                <div class="col-md-6 pe-4" >
+                    <label for="name" class="form-label">Name<span>*</span></label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name">
+                    <span  class="has-error" id="name_error" style="color:red;margin-top:5px;display:none">Please Enter Name</span>
+                </div>
+
+                <div class="col-md-6 pe-4" >
+                    <label for="username" class="form-label">Username<span>*</span></label>
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Enter Username">
+                    <span  class="has-error" id="username_error" style="color:red;margin-top:5px;display:none">Please Enter Username </span>
+                    <span  class="has-error" id="username_check_error" style="color:red;margin-top:5px;display:none"> Username already Created  </span>
+                </div>
+
+
+                <div class="col-md-6 pe-4" >
+                    <label for="email" class="form-label">Email-Id<span>*</span></label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email">
+                    <span  class="has-error" id="email_error" style="color:red;margin-top:5px;display:none">Please Enter Email </span>
+                    <span  class="has-error" id="email_check_error" style="color:red;margin-top:5px;display:none"> Email already Added  </span>
+                </div>
+
+                <div class="col-md-6  pe-4">
+                    <label for="role" class="form-label">Role<span>*</span></label>
+                    <select class="form-select form-control" id="role" name="role">
+                        <option selected>Select Role</option>
+                        <option value="1">Super Admin</option>
+                        <option value="2">Author</option>
+                        <option value="3">Tester</option>
+                        <option value="4">Approver</option>
+                    </select>
+                    <span  class="help-block " id="role_error" style="color:red;margin-top:5px;display:none">Please Enter Role  </span>
+                </div>
+
+                <div class="col-md-6 pe-4" >
+                    <label for="email" class="form-label">Password<span>*</span></label>
+                    <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" class="form-control" id="password" name="password" placeholder="Enter Password">
+                    <span  class="help-block " style="margin-top:5px;">Note - more then 8 digit, Uppercase, Lowercase,Special Character,Number  </span>
+                    <span  class="has-error" id="password_error" style="color:red;margin-top:5px;display:none">Please Password </span>
+                </div>
+
+                <div class="col-12 btn-wrapper  pe-4">
+                    <button type="submit" class="btn">SUBMIT</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+	function add_field() {
+		var max_fields = 9;
+		console.log("test");
+		var cnt = $("#count").val()
+		if (cnt < max_fields) {
+			cnt = parseInt(cnt) + 1;
+			$('#count').val(cnt);
+			$("#data").append('<div id="' + cnt + '"><label class="d-flex align-items-center fs-6 fw-bold mb-2"><span class="required">Query</span></label><input type="text" class="form-control form-control-solid" placeholder="Enter Intent" name="mytext_' + cnt + '" style="width: 85%;float: left;margin-right: 12px;"> <button onclick=rm(' + cnt + ') type="button" class="btn btn-danger"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash" viewBox="0 0 16 16"><path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"></path></svg></button></div>'); //add input box
+		} else {
+			alert('You Reached the limits')
+		}
+	}
+	function rm(id) {
+		$("#" + id).html("")
+	}
+	function validateForm() {
+
+        var answer1 = $('#name').val();
+        var answer2 = $('#username').val();
+        var answer3 = $('#email').val();
+        var answer4 = $('#role').val();
+        var answer5 = $('#password').val();
+        var answer1 = $.trim(answer1);
+        var answer2 = $.trim(answer2);
+        var answer3 = $.trim(answer3);
+        var answer4 = $.trim(answer4);
+        var answer5 = $.trim(answer5);
+		console.log(answer1)
+		console.log(answer4)
+		var check_result = null
+		$.ajax({
+			async: false,
+			type: "POST",
+			url: "{{ url_for('admin.check_username', _external=True, _scheme= config['SSL_SECURITY']) }}",
+			data: {answer2: answer2 },
+				success: function(result){
+				check_result = result
+				console.log(check_result)
+			}
+		});
+		$.ajax({
+			async: false,
+			type: "POST",
+			url: "{{ url_for('admin.check_email', _external=True, _scheme= config['SSL_SECURITY']) }}",
+			data: {answer3: answer3 },
+				success: function(result){
+				check_result_email = result
+				console.log(check_result)
+			}
+		});
+		console.log(check_result)
+        var error_count = 0;
+        if (answer2 == "" || answer2 == null) {
+        	$('#username').addClass("has-error");
+        	$('#username_check_error').hide();
+            $('#username_error').show();
+            error_count = 1;
+        }else if( check_result > 0){
+        	$('#username').addClass("has-error");
+        	$('#username_error').hide();
+			$('#username_check_error').show();
+            error_count = 1;
+        } else {
+	        $('#username').removeClass("has-error");
+            $('#username_error').hide();
+            $('#username_check_error').hide();
+        }
+
+        if (answer3 == "" || answer3 == null) {
+        	$('#email').addClass("has-error");
+        	$('#email_check_error').hide();
+            $('#email_error').show();
+            error_count = 1;
+        }else if( check_result_email > 0){
+        	$('#email').addClass("has-error");
+        	$('#email_error').hide();
+			$('#email_check_error').show();
+            error_count = 1;
+        } else {
+	        $('#email').removeClass("has-error");
+            $('#email_error').hide();
+            $('#email_check_error').hide();
+        }
+
+        if (answer1 == "" || answer1 == null) {
+        	$('#name').addClass("has-error");
+            $('#name_error').show();
+            error_count = 1;
+        } else {
+        	$('#name').removeClass("has-error");
+            $('#name_error').hide();
+        }
+        console.log(answer5)
+        if (answer5 == "" || answer5 == null) {
+        	$('#password').addClass("has-error");
+            $('#password_error').show();
+            error_count = 1;
+        } else {
+        	$('#password').removeClass("has-error");
+            $('#password_error').hide();
+        }
+
+        if (answer4 == 'Select Role') {
+        	$('#role').addClass("has-error");
+            $('#role_error').show();
+            error_count = 1;
+        } else {
+        	$('#role').removeClass("has-error");
+            $('#role_error').hide();
+        }
+		if (error_count == 1) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+</script>
+
+
+{% endblock content %}

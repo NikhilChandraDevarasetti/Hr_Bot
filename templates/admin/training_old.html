@@ -1,0 +1,571 @@
+{% extends "layout/base.html" %}
+{% block content %}
+<style>
+	.circle {
+  border-radius: 30%;
+  padding: 10px;
+  background: #eee;
+  border: 1px solid #eee;
+  color: #000;
+  text-align: center;
+}
+.circle:hover {
+	background-color: #009ef74f;
+	color:black
+}
+
+</style>
+<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+	<div class="toolbar" id="kt_toolbar">
+		<div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
+			<div data-kt-swapper="true" data-kt-swapper-mode="prepend"
+				data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}"
+				class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
+				<h1 class="d-flex align-items-center text-dark fw-bolder fs-3 my-1">Trained Model</h1>
+				<span class="h-20px border-gray-200 border-start mx-4"></span>
+			</div>
+		</div>
+	</div>
+	<div class="post d-flex flex-column-fluid" id="kt_post">
+		<div id="kt_content_container" class="container-xxl">
+			<div class="card mb-5 mb-xl-8">
+				<div class="card-header border-0 pt-5" style="display: inline-table; !important">
+					<h3><span class="card-label fw-bolder fs-3 mb-1">Active Model On Environment</span></h3>
+				</div>
+				<div class="card-body py-3">
+					<div class="table-responsive">
+						<table class="table align-middle gs-0 gy-4">
+							<thead>
+								<tr class="fw-bolder text-muted bg-light">
+									<th class="min-w-10px">Id</th>
+									<th class="min-w-100px">Model Name</th>
+									<!-- <th class="min-w-100px">Model File</th> -->
+									<th class="min-w-100px">Status</th>
+									<th class="min-w-75px">Trained Date/By</th>
+									<th class="min-w-75px">Running Status</th>
+									<!-- <th class="min-w-100px">Running On Production</th> -->
+									<th class="min-w-80px"colspan="2">Staging</th>
+									<th class="min-w-80px"colspan="2">Production</th>
+									<th class="min-w-150px">Action</th>
+								</tr>
+								<tr class="fw-bolder text-muted bg-light">
+									<th class="min-w-10px"></th>
+									<th class="min-w-100px"></th>
+									<th class="min-w-100px"></th>
+									<th class="min-w-75px"></th>
+									<th class="min-w-75px"></th>
+									<th class="min-w-40px" >Active Count</th>
+									<th class="min-w-40px">InActive Count</th>
+									<th class="min-w-40px">Active Count</th>
+									<th class="min-w-40px">InActive Count</th>
+									<th class="min-w-150px"></th>
+								</tr>
+							</thead>
+							<tbody id="update_data">
+								{% for item in data %}
+								<tr>
+									<td>
+										<span class="text-dark fw-bolder d-block mb-1 fs-6">{{item[0]}}</span>
+									</td>
+									<td>
+										<span class="text-dark fw-bolder d-block mb-1 fs-6">{{item[1]}}</span>
+									</td>
+									<td>
+										{% if item[2] == "1" %}
+										<span class="badge badge-light-success">Trained</span>
+										{% elif item[2] == "3" %}
+										<span class="badge badge-light-primary">In Process</span>
+										{% else %}
+										<span class="badge badge-light-danger">Training failed</span>
+										{% endif %}
+									</td>
+									<td>
+										<span class="text-dark fw-bolder d-block mb-1 fs-6">{{item[3]}}/{{item[4]}}</span>
+									</td>
+									<td>
+										<span class="text-dark fw-bolder d-block mb-1 fs-6">{% if item[6]=="2" %} Staging {% elif item[6] == '3' %} Both {% elif item[6] == '1' %} Production {% else %}No{%endif%}</span>
+									</td>
+									<td>
+										<a href="javascript:void(0)" onclick="view_intent('{{item[7]}}','1')"
+												  class="circle">{{item[8]}}</a>
+									</td>
+									<td>
+										<a href="javascript:void(0)" onclick="view_intent('{{item[7]}}','2')"
+												class="circle">{{item[9]}}</a>
+									</td>
+									<td>
+										<a href="javascript:void(0)" onclick="view_intent('{{item[7]}}','3')"
+												class="circle" >{{item[10]}}</a>
+									</td>
+									<td>
+										<a href="javascript:void(0)" onclick="view_intent('{{item[7]}}','4')"
+												class="circle" >{{item[11]}}</a>
+									</td>
+									<td>
+										<div class="card-toolbar">
+											{% if session.role == "2" %}
+												{% if item[6] == "3" or item[6] == "1" %}
+													<button disabled
+														class="btn btn-sm btn-primary" style="margin-bottom: 10px;margin-left: 10px;width: 80%;">
+														On Production</button>
+												{% elif item[2] == "3" %}
+													<button disabled
+														class="btn btn-sm btn-warning" style="margin-bottom: 10px;margin-left: 10px;width: 80%;">
+														Deployment In Process</button>
+												{%elif (stag_model_count != 0) and item[6] == "2" and item[13] == "0" %}
+													<a href="javascript:void(0)" onclick="submit_approval('{{item[12]}}','{{item[13]}}')"
+													class="btn btn-sm btn-primary" style="margin-left: 10px;width: 80%;">Send for Approval</a>
+													<a href="javascript:void(0)" onclick="reject_intent('{{item[12]}}','{{item[1]}}')"
+														class="btn btn-sm btn-danger" style="margin-top: 10px;margin-left: 10px;width: 80%;">Reject</a>
+												{%elif (stag_model_count != 0) and item[13] == "2" %}
+													<button disabled class="btn btn-sm btn-warning"
+													   style="margin-left: 10px;width: 80%;">Pending</button>
+												{%elif item[6] == "2" and item[13] == "4" %}
+													<button disabled
+														class="btn btn-sm btn-danger" style="margin-left: 10px;width: 80%;">Rejected</button>
+												{% endif %}
+											{% else %}
+												{%if item[6] == "3" or item[6] == "1" %}
+													<button
+														class="btn btn-sm btn-primary" style="margin-bottom: 10px;margin-left: 10px;width: 80%;" disabled>On Production</button>
+												{% elif item[2] == "3" %}
+													<button disabled
+														class="btn btn-sm btn-warning" style="margin-bottom: 10px;margin-left: 10px;width: 80%;">
+														Deployment In Process</button>
+												{%elif item[6] == "2" and item[13] == "0" %}
+													<button
+														class="btn btn-sm btn-warning" style="margin-bottom: 10px;margin-left: 10px;width: 80%;" disabled>On Staging</button>
+												{%elif item[6] == "2" and item[13] == "2" %}
+													<a href="javascript:void(0)" onclick="submit_prod('{{item[7]}}')"
+														class="btn btn-sm btn-primary" style="margin-bottom: 10px;margin-left: 10px;width: 80%;">Deploy On Production</a>
+													<a href="javascript:void(0)" onclick="reject_intent('{{item[12]}}','{{item[1]}}')"
+														class="btn btn-sm btn-danger" style="margin-left: 10px;width: 80%;">Reject</a>
+												{% endif %}
+											{% endif %}
+										</div>
+									</td>
+								</tr>
+								{% endfor %}
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+			</div>
+			<div class="card mb-5 mb-xl-8">
+				<div class="card-header border-0 pt-5" style="display: inline-table; !important">
+					<h3><span class="card-label fw-bolder fs-3 mb-1">Trained Models</span></h3>
+					<!-- <h3>
+						<span class="card-label fw-bolder fs-3 mb-1">Training Status List</span>
+						<span class="text-muted mt-1 fw-bold fs-7"></span>
+						<button disabled style="float: right;margin-left: 10px;background: green;" type="button"
+							class="btn btn-primary">Production</button>
+						<button disabled style="float: right;margin-left: 10px;background: #9570cc;" type="button"
+							class="btn btn-primary">Staging</button>
+						<button disabled style="float: right;margin-left: 10px;background: #0095e8;" type="button"
+							class="btn btn-primary">Both</button>
+						<button disabled style="float: right;margin-left: 10px;background: gray;" type="button"
+							class="btn btn-primary">In Process</button>
+					</h3> -->
+				</div>
+				<div class="card-body py-3">
+					<div class="table-responsive">
+						<table class="table align-middle gs-0 gy-4">
+							<thead>
+								<tr class="fw-bolder text-muted bg-light">
+									<th class="min-w-10px">Id</th>
+									<th class="min-w-100px">Model Name</th>
+									<!-- <th class="min-w-100px">Model File</th> -->
+									<th class="min-w-100px">Status</th>
+									<th class="min-w-75px">Trained Date/By</th>
+									<th class="min-w-75px">Running Status</th>
+									<!-- <th class="min-w-100px">Running On Production</th> -->
+									<th class="min-w-80px"colspan="2">Staging</th>
+									<th class="min-w-80px"colspan="2">Production</th>
+									<th class="min-w-150px">Action</th>
+								</tr>
+								<tr class="fw-bolder text-muted bg-light">
+									<th class="min-w-10px"></th>
+									<th class="min-w-100px"></th>
+									<th class="min-w-100px"></th>
+									<th class="min-w-75px"></th>
+									<th class="min-w-75px"></th>
+									<th class="min-w-40px" >Active Count</th>
+									<th class="min-w-40px">InActive Count</th>
+									<th class="min-w-40px">Active Count</th>
+									<th class="min-w-40px">InActive Count</th>
+									<th class="min-w-150px"></th>
+								</tr>
+							</thead>
+							<tbody id="update_data_history">
+								{% for item in approve_data %}
+								<tr>
+									<td>
+										<span class="text-dark fw-bolder d-block mb-1 fs-6">{{item[0]}}</span>
+									</td>
+									<td>
+										<span class="text-dark fw-bolder d-block mb-1 fs-6">{{item[1]}}</span>
+									</td>
+									<td>
+										{% if item[2] == "1" %}
+										<span class="badge badge-light-success">Trained</span>
+										{% elif item[2] == "3" %}
+										<span class="badge badge-light-primary">In Process</span>
+										{% else %}
+										<span class="badge badge-light-danger">Training failed</span>
+										{% endif %}
+									</td>
+									<td>
+										<span class="text-dark fw-bolder d-block mb-1 fs-6">{{item[3]}}/{{item[4]}}</span>
+									</td>
+									<td>
+										<span class="text-dark fw-bolder d-block mb-1 fs-6">{% if item[6]=="2" %} Staging {% elif item[6] == '3' %} Both {% elif item[6] == '1' %} Production {% else %}No{%endif%}</span>
+									</td>
+									<td>
+										<a href="javascript:void(0)" onclick="view_intent('{{item[7]}}','1')"
+												  class="circle">{{item[8]}}</a>
+									</td>
+									<td>
+										<a href="javascript:void(0)" onclick="view_intent('{{item[7]}}','2')"
+												class="circle">{{item[9]}}</a>
+									</td>
+									<td>
+										<a href="javascript:void(0)" onclick="view_intent('{{item[7]}}','3')"
+												class="circle" >{{item[10]}}</a>
+									</td>
+									<td>
+										<a href="javascript:void(0)" onclick="view_intent('{{item[7]}}','4')"
+												class="circle" >{{item[11]}}</a>
+									</td>
+									<td>
+										<div class="card-toolbar">
+											{% if session.role == "2" %}
+												{% if item[13] == "4" %}
+													<button disabled
+														class="btn btn-sm btn-danger" style="margin-left: 10px;width: 80%;">Rejected</button>
+												{% elif item[13] == "5" %}
+													<a href="javascript:void(0) " onclick="submit_stg('{{item[7]}}')"
+													    class="btn btn-sm btn-success" style="margin-left: 10px;width: 80%;">Deploy On Staging</a>
+
+												{%elif stag_model_count == 0 %}
+													<a href="javascript:void(0)" onclick="submit_stg('{{item[7]}}')"
+													class="btn btn-sm btn-warning" style="margin-left: 10px;margin-bottom: 10px;width: 80%;">Staging</a>
+												{%elif (stag_model_count != 0) and item[13] == "0" %}
+													<a href="javascript:void(0)" onclick="submit_stg('{{item[7]}}')"
+													class="btn btn-sm btn-warning" style="margin-left: 10px;margin-bottom: 10px;width: 80%;">
+														Deploy On Staging</a>
+
+												{%elif (stag_model_count != 0) and item[13] == "6" %}
+												{% endif %}
+
+											{% else %}
+												{% if item[13] == "5" %}
+													<a href="javascript:void(0) " onclick="submit_prod('{{item[7]}}')"
+														class="btn btn-sm btn-success" style="margin-left: 10px;width: 80%;">Deploy On Production</a>
+												{% elif item[13] == "4" %}
+													<button
+														class="btn btn-sm btn-danger" style="margin-left: 10px;width: 80%;" disabled>Rejected</button>
+												{%elif item[6] == "2" and item[13] == "0" %}
+													<button
+														class="btn btn-sm btn-warning" style="margin-bottom: 10px;margin-left: 10px;width: 80%;" disabled>On Staging</button>
+												{% else %}
+													<a href="javascript:void(0)" onclick="submit_stg('{{item[7]}}')"
+													class="btn btn-sm btn-warning" style="margin-left: 10px;margin-bottom: 10px;width: 80%;">
+														Deploy on Staging</a>
+												{% endif %}
+											{% endif %}
+										</div>
+									</td>
+								</tr>
+								{% endfor %}
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+<div id="vip">
+
+</div>
+
+<div id="reject_intent">
+
+</div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+<script>
+	function checked_data(){
+		console.log("test")
+		if ($('.pick_up:checked').length == $('.pick_up').length) {
+			$('#all').prop('checked', true)
+		}else{
+			$('#all').prop('checked', false)
+		}
+	}
+	function view_intent(model_id,status){
+		$.ajax({
+			type: "POST",
+			url: "{{ url_for('training.view_intent', _external=True, _scheme= config['SSL_SECURITY']) }}",
+			data: { model_id: model_id, status: status},
+			success: function (result) {
+				$('#vip').html(result);
+				$("#kt_modal_view_users").modal('show')
+			}
+		});
+	}
+	function reject_intent(model_id,name){
+		$.ajax({
+			type: "POST",
+			url: "{{ url_for('intent.model_intent_list', _external=True, _scheme= config['SSL_SECURITY']) }}",
+			data: { model_id: model_id,name:name},
+			success: function (result) {
+				$('#reject_intent').html(result);
+				$("#intent_rejection").modal('show')
+			}
+		});
+	}
+	function revoke(model_id){
+		intent_list = []
+		var checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
+		for (var i = 0; i < checkboxes.length; i++) {
+
+		  intent_list.push(checkboxes[i].value)
+		}
+		if(intent_list.includes("all")){
+			intent_list.shift()
+		}
+
+		console.log("welcome")
+		console.log(intent_list)
+
+		$.confirm({
+			title: 'Confirmation',
+			content: 'Do you want to Revoke selected intents?',
+			buttons: {
+				confirm: function () {
+					$.ajax({
+						type: "POST",
+						url: "{{ url_for('training.revoke', _external=True, _scheme= config['SSL_SECURITY']) }}",
+						data: { intent_list: intent_list,model_id:model_id},
+						success: function (result) {
+							console.log(result)
+							$("#intent_rejection").modal('hide')
+							setTimeout(function(){
+							   window.location.reload();
+							}, 5000);
+								toastr.options = {
+									"closeButton": true,
+									"debug": false,
+									"positionClass": "toast-top-right",
+									"onclick": null,
+									"showDuration": "1000",
+									"hideDuration": "1000",
+									"timeOut": "50000",
+									"extendedTimeOut": "1000",
+									"showEasing": "swing",
+									"hideEasing": "swing",
+									"showMethod": "show",
+									"hideMethod": "hide"
+								}
+							Command: toastr.success("Intent Revoke Successfully");
+						}
+					});
+				}
+			}
+		});
+	}
+
+
+	function submit_stg(id) {
+		$.confirm({
+			title: 'Confirmation',
+			content: 'Do you want to Deploy on Staging server?',
+			buttons: {
+				confirm: function () {
+					$.ajax({
+						type: "GET",
+						url: "{{ url_for('training.replace_stag', id=id, _external=True, _scheme= config['SSL_SECURITY']) }}",
+						success: function (result) {
+							if(typeof result === 'object'){
+								msg = "Anther model deployment is runnning";
+								toastr.options = {
+									"closeButton": true,
+									"debug": false,
+									"positionClass": "toast-top-right",
+									"onclick": null,
+									"showDuration": "1000",
+									"hideDuration": "1000",
+									"timeOut": "50000",
+									"extendedTimeOut": "1000",
+									"showEasing": "swing",
+									"hideEasing": "swing",
+									"showMethod": "show",
+									"hideMethod": "hide"
+								}
+								Command: toastr.warning(msg);
+							}else{
+								msg = "Model is Deploying";
+								setTimeout(function(){
+								   window.location.reload();
+								}, 5000);
+								toastr.options = {
+									"closeButton": true,
+									"debug": false,
+									"positionClass": "toast-top-right",
+									"onclick": null,
+									"showDuration": "1000",
+									"hideDuration": "1000",
+									"timeOut": "50000",
+									"extendedTimeOut": "1000",
+									"showEasing": "swing",
+									"hideEasing": "swing",
+									"showMethod": "show",
+									"hideMethod": "hide"
+								}
+								Command: toastr.success(msg);
+							}
+						}
+					});
+				},
+				cancel: function () {
+				}
+			}
+		});
+	}
+	function submit_prod(id) {
+		$.confirm({
+			title: 'Confirmation',
+			content: 'Do you want to Deploy on Production server?',
+			buttons: {
+				confirm: function () {
+					$.ajax({
+						type: "GET",
+						url: "{{ url_for('training.replace_model_prod', id=id, _external=True, _scheme= config['SSL_SECURITY']) }}",
+						success: function (result) {
+							if(typeof result === 'object'){
+								msg = "Anther model deployment is runnning";
+								toastr.options = {
+									"closeButton": true,
+									"debug": false,
+									"positionClass": "toast-top-right",
+									"onclick": null,
+									"showDuration": "1000",
+									"hideDuration": "1000",
+									"timeOut": "50000",
+									"extendedTimeOut": "1000",
+									"showEasing": "swing",
+									"hideEasing": "swing",
+									"showMethod": "show",
+									"hideMethod": "hide"
+								}
+								Command: toastr.warning(msg);
+							}else{
+								msg = "Model is Deploying On Production";
+								setTimeout(function(){
+								   window.location.reload();
+								}, 5000);
+								toastr.options = {
+									"closeButton": true,
+									"debug": false,
+									"positionClass": "toast-top-right",
+									"onclick": null,
+									"showDuration": "1000",
+									"hideDuration": "1000",
+									"timeOut": "50000",
+									"extendedTimeOut": "1000",
+									"showEasing": "swing",
+									"hideEasing": "swing",
+									"showMethod": "show",
+									"hideMethod": "hide"
+								}
+								Command: toastr.success(msg);
+							}
+						}
+					});
+				},
+				cancel: function () {
+				}
+			}
+		});
+	}
+
+	function submit_approval(id,status) {
+		$.confirm({
+			title: 'Confirmation',
+			content: 'Do you want to Continue?',
+			buttons: {
+				confirm: function () {
+					$.ajax({
+						type: "POST",
+						url: "{{ url_for('training.change_status', _external=True, _scheme= config['SSL_SECURITY']) }}",
+						data: { id: id, status: status },
+						success: function (result) {
+							msg = "Status is Changed";
+							setTimeout(function(){
+							   window.location.reload();
+							}, 5000);
+							toastr.options = {
+								"closeButton": true,
+								"debug": false,
+								"positionClass": "toast-top-right",
+								"onclick": null,
+								"showDuration": "1000",
+								"hideDuration": "1000",
+								"timeOut": "50000",
+								"extendedTimeOut": "1000",
+								"showEasing": "swing",
+								"hideEasing": "swing",
+								"showMethod": "show",
+								"hideMethod": "hide"
+							}
+							Command: toastr.success(msg);
+						}
+					});
+				},
+				cancel: function () {
+				}
+			}
+		});
+	}
+	function submit_reject(id,status) {
+		$.confirm({
+			title: 'Confirmation',
+			content: 'Do you want to Continue?',
+			buttons: {
+				confirm: function () {
+					$.ajax({
+						type: "POST",
+						url: "{{ url_for('training.reject_model', _external=True, _scheme= config['SSL_SECURITY']) }}",
+						data: { id: id, status: status },
+						success: function (result) {
+							msg = "Status is Changed";
+							setTimeout(function(){
+							   window.location.reload();
+							}, 5000);
+							toastr.options = {
+								"closeButton": true,
+								"debug": false,
+								"positionClass": "toast-top-right",
+								"onclick": null,
+								"showDuration": "1000",
+								"hideDuration": "1000",
+								"timeOut": "50000",
+								"extendedTimeOut": "1000",
+								"showEasing": "swing",
+								"hideEasing": "swing",
+								"showMethod": "show",
+								"hideMethod": "hide"
+							}
+							Command: toastr.success(msg);
+						}
+					});
+				},
+				cancel: function () {
+				}
+			}
+		});
+	}
+</script>
+{% endblock content %}

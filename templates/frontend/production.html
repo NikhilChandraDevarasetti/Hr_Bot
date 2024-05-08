@@ -1,0 +1,46 @@
+{% extends "layout/base.html" %}
+{% block content %}
+<iframe style="width: 30%;
+    height: 100%;
+    margin-left: 15px;
+    margin-top: 79px;
+    margin-bottom: 10px;" src="{{ url_for('staging_testing', _external=True, _scheme= config['SSL_SECURITY']) }}">
+</iframe>
+<style>
+  .rw-conversation-container .rw-header {
+    background-color: #fa7070;
+  }
+
+  .rw-conversation-container .rw-messages-container .rw-message .rw-client {
+    background-color: #fa7070;
+  }
+
+  .rw-launcher {
+    background-color: #fa7070;
+  }
+</style>
+<script>!(function () {
+    let e = document.createElement("script"),
+      t = document.head || document.getElementsByTagName("head")[0];
+    (e.src =
+      "https://cdn.jsdelivr.net/npm/rasa-webchat@1.x.x/lib/index.js"),
+      // Replace 1.x.x with the version that you want
+      (e.async = !0),
+      (e.onload = () => {
+        window.WebChat.default(
+          {
+            initPayload: '/greet',
+            customData: { language: "en" },
+            params: { storage: "session" },
+            socketUrl: "{{prod_socket_uri}}",
+            socketPath: "{{prod_socket_path}}",
+            title: 'Chat-Bot Production Environment'
+            // add other props here
+          },
+          null
+        );
+      }),
+      t.insertBefore(e, t.firstChild);
+  })();
+</script>
+{% endblock content %}

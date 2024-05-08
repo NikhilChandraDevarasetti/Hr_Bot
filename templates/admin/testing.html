@@ -1,0 +1,105 @@
+{% extends "layout/base.html" %}
+{% block content %}
+<div class="production-environment col-lg-6 d-flex align-items-end justify-content-center" style="position: absolute;
+                top:20%;left:58%">
+	<div class="chat-board">
+		<div class="chat-board__top">
+		  <h3 class="top-heading mb-0">Production Environment</h3>
+		</div>
+		<div class="chat-board__chatting-area">
+		  <div class="date-area ">
+			  <h4 class="chat-date">Nov 21 2022</h4>
+		  </div>
+			<div class="d-flex class particular-chat-wrapper">
+				<h4 class="chat user1  ">Welcome to NeoBot</h4>
+			</div>
+		</div>
+		<div class="chat-board__bottom">
+		  <div class="chat-input d-flex ">
+			  <div class="input-sec">
+				<input id="txtInput"  type="text" placeholder="Type a message..." autofocus />
+				<button type="button" onclick="send_msg()" name="submit" id="press_enter" hidden>SUBMIT</button>
+			  </div>
+			  <div class="send " onclick="check_data()">
+				<img src="static/assets/img/icons/send-icon.png" alt="send-icon">
+			  </div>
+		  </div>
+		</div>
+	</div>
+	<div class="close-btn production-close-btn"><span class="material-symbols-outlined">
+	close
+	</span>
+	</div>
+</div>
+
+
+<script>
+    // document.querySelector('#video_').autoplay = false;
+
+    function send_msg(){
+        var msg = $('#txtInput').val()
+        len_count = $("#txtInput").val().length
+        if(len_count < 200 && (Boolean(msg.match(/[a-zA-Z0-9]+/)))){
+        	console.log(len_count)
+	        $("#txtInput").attr('disabled','disabled');
+    		console.log('helo')
+    	}else{
+    		if(len_count > 200){
+    			$(".chat-board__chatting-area").append("<div class='d-flex class particular-chat-wrapper'><h4 class='chat user1' style='color:red'>Chat message is too large </h4></div>")
+    		}else{
+    			$(".chat-board__chatting-area").append("<div class='d-flex class particular-chat-wrapper'><h4 class='chat user1' style='color:red'>Invalid Input </h4></div>")
+    		}
+    		$('.chat-board__chatting-area').scrollTop($('.chat-board__chatting-area')[0].scrollHeight);
+    		console.log('else')
+    	}
+		if(msg != '' && len_count < 200 && (Boolean(msg.match(/[a-zA-Z0-9]+/))) ) {
+		 $(".chat-board__chatting-area").append("<div class='d-flex class particular-chat-wrapper'><h4 class='chat user2'>"+msg+"</h4></div>")
+         $('#txtInput').val("")
+         $('#txtInput').attr('disabled','disabled');
+			console.log('test')
+            $.ajax({
+                type: "POST",
+                url: "{{ url_for('bot_msg', _external=True, _scheme= config['SSL_SECURITY']) }}",
+                data: { msg: msg},
+                success: function (result) {
+                	console.log(result)
+                	$("#txtInput").removeAttr('disabled');
+                    $(".chat-board__chatting-area").append(result)
+                    $('.chat-board__chatting-area').scrollTop($('.chat-board__chatting-area')[0].scrollHeight);
+                }
+            });
+        }
+	}
+
+    function button_intent(intent,title){
+        var msg = intent
+        console.log(msg)
+        $(".chat-board__chatting-area").append("<div class='d-flex class particular-chat-wrapper'><h4 class='chat user2'>"+title+"</h4></div>")
+		$('#txtInput').val("")
+		$.ajax({
+			type: "POST",
+			url: "{{ url_for('bot_msg', _external=True, _scheme= config['SSL_SECURITY']) }}",
+			data: { msg: msg},
+			success: function (result) {
+                $('.chat-board__tags').remove()
+				$(".chat-board__chatting-area").append(result)
+				$('.chat-board__chatting-area').scrollTop($('.chat-board__chatting-area')[0].scrollHeight);
+            }
+		});
+	}
+	function check_data(){
+		console.log('data')
+		$('#press_enter').click();
+	}
+    $(document).ready(function(){
+    $('#txtInput').keypress(function(e){
+      if(e.keyCode==13)
+      $('#press_enter').click();
+    });
+    });
+</script>
+
+{% endblock content %}
+
+
+

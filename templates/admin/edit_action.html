@@ -1,0 +1,197 @@
+{% extends "layout/base.html" %}
+{% block content %}
+<style>
+	.has-error{
+	   border-color: red !important;
+	}
+</style>
+<div class="intent-info w-100">
+    <div class="custom-action-main">
+        <div class="custom-action">
+            <h4 class="custom-action__title">Custom Action</h4>
+            <form onsubmit="return validateForm()"  class="row g-3" name="myform" id="kt_modal_new_target_form_single" action="{{ url_for('custom_action.update_action', _external=True, _scheme= config['SSL_SECURITY']) }}"  method="post">
+
+
+                <div class="col-md-6 pe-4" >
+                    <label for="token" class="form-label">Token<span>*</span></label>
+                    <input type="text" class="form-control" id="token" name="token" placeholder="Enter Token" value="{{data[0]}}">
+                    <span  class="has-error" id="token_error" style="color:red;margin-top:5px;display:none"> Please Enter Token </span>
+                </div>
+                <div class="col-md-6  pe-4">
+                    <label for="token_value" class="form-label">Token Value<span>*</span></label>
+                    <input type="text" class="form-control" id="token_value" name="token_value" placeholder="Enter Token Value" value="{{data[2]}}">
+                    <span  class="has-error" id="token_value_error" style="color:red;margin-top:5px;display:none"> Please Enter Token Value</span>
+                </div>
+                <div class="col-md-6  pe-4">
+                    <label for="url" class="form-label">Url<span>*</span></label>
+                    <input type="text" class="form-control" id="url" name="url" placeholder="Enter API Url" value="{{data[3]}}">
+                    <span  class="has-error" id="url_error" style="color:red;margin-top:5px;display:none"> Please Enter API url  </span>
+                    <input type="text" id="custId" name="custId" value="{{data[8]}}" hidden>
+                </div>
+                <div class="col-md-6  pe-4">
+                    <label for="action_name" class="form-label">Action Name<span>*</span></label>
+                    <input type="text" class="form-control" id="action_name" name="action_name" placeholder="Enter Action Name" value="{{data[1]}}">
+                    <span  class="has-error" id="action_name_error" style="color:red;margin-top:5px;display:none"> Please Enter Action Name for e.g. <'action_greet'> </span>
+                </div>
+                <div class="col-md-6  pe-4">
+                    <label for="method" class="form-label">Method<span>*</span></label>
+                    <select class="form-select form-control" id="method" name="method" >
+                        <option value="1" {% if data[4] =='1' %} selected="selected" {% endif %}>GET</option>
+                        <option value="2" {% if data[4] =='2' %} selected="selected" {% endif %}>POST</option>
+                    </select>
+                </div>
+                <div class="col-md-6  pe-4">
+                    <label for="request_type" class="form-label">Select Request Type<span>*</span></label>
+                    <select class="form-select form-control" id="request_type" name="request_type">
+                        <option selected>Enter Intent</option>
+                        <option value="1" {% if data[5] =='1' %} selected="selected" {% endif %}>Text</option>
+                        <option value="2" {% if data[5] =='2' %} selected="selected" {% endif %}>Button</option>
+                        <option value="3" {% if data[5] =='3' %} selected="selected" {% endif %}>PDF</option>
+                        <option value="4" {% if data[5] =='4' %} selected="selected" {% endif %}>Video</option>
+                        <option value="5" {% if data[5] =='5' %} selected="selected" {% endif %}>Image</option>
+                    </select>
+                </div>
+                <div class="mb-2  pe-4">
+                    <label for="request" class="form-label" >Request <img src="static/assets/img/icons/i_icon.svg" alt="i icon" class="pb-2"></label>
+                    <textarea class="form-control description" id="request" name="request" rows="4"
+                        placeholder="Request Body">{{data[6]}}</textarea>
+                    <span  class="has-error" id="request_body_error" style="color:red;margin-top:5px;display:none"> Please Enter Request Body in JSON i.e {"key":"value"} </span>
+                </div>
+                <div class="mb-2  pe-4">
+                    <label for="response" class="form-label">Response <img src="static/assets/img/icons/i_icon.svg" alt="i icon" class="pb-2"></label>
+                    <textarea class="form-control description" id="response" name="response" rows="4"
+                        placeholder="Response Body">{{data[7]}}</textarea>
+                    <span  class="has-error" id="response_body_error" style="color:red;margin-top:5px;display:none"> Please Enter Response Body in JSON i.e {"key":"value"}  </span>
+                </div>
+                <div class="col-12 btn-wrapper  pe-4">
+                    <button type="submit" class="btn">SUBMIT</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+	function validateForm() {
+        var answer1 = $('#token').val();
+        var answer2 = $('#token_value').val();
+        var answer3 = $('#url').val();
+        var answer4 = $('#action_name').val();
+        var answer5 = $('#request').val();
+        var answer6 = $('#response').val();
+        var answer7 = $('#custId').val();
+        var index = answer3.indexOf("action");
+
+
+
+        var answer1 = $.trim(answer1);
+        var answer2 = $.trim(answer2);
+        var answer3 = $.trim(answer3);
+        var answer4 = $.trim(answer4);
+        var answer5 = $.trim(answer5);
+        var answer6 = $.trim(answer6);
+        var answer7 = $.trim(answer7);
+
+
+
+
+
+		console.log(answer1)
+
+		console.log(check_result)
+        var error_count = 0;
+        if (answer1 == "" || answer1 == null) {
+        	$('#token').addClass("has-error");
+            $('#token_error').show();
+            error_count = 1;
+        }else if( check_result > 0){
+        	$('#token').addClass("has-error");
+			$('#token_error').show();
+            error_count = 1;
+        } else {
+	        $('#token').removeClass("has-error");
+            $('#token_error').hide();
+        }
+
+        if (answer2 == "" || answer2 == null) {
+        	$('#token_value').addClass("has-error");
+            $('#token_value_error').show();
+            error_count = 1;
+        } else {
+        	$('#token_value').removeClass("has-error");
+            $('#token_value_error').hide();
+        }
+
+
+        if (answer3 == "" || answer3 == null) {
+        	$('#url').addClass("has-error");
+            $('#url_error').show();
+            error_count = 1;
+        } else {
+        	$('#url').removeClass("has-error");
+            $('#url_error').hide();
+        }
+
+		if (answer4 == "" || answer4 == null) {
+        	$('#action_name').addClass("has-error");
+            $('#action_name_error').show();
+            error_count = 1;
+        } else {
+        	$('#action_name').removeClass("has-error");
+            $('#action_name_error').hide();
+        }
+
+
+
+        if (answer5 == "" || answer5 == null) {
+        	$('#request').addClass("has-error");
+            $('#request_body_error').show();
+            error_count = 1;
+        } else {
+        	$('#request').removeClass("has-error");
+            $('#request_body_error').hide();
+        }
+
+
+		if (answer6 == "" || answer6 == null) {
+        	$('#response').addClass("has-error");
+            $('#response_body_error').show();
+            error_count = 1;
+        } else {
+        	$('#response').removeClass("has-error");
+            $('#response_body_error').hide();
+        }
+
+		if (index === -1){
+        	alert("Please mention action name in proper format");
+        	return false;
+        }
+
+		try {
+        	JSON.parse(answer5);
+        } catch (error) {
+        	alert("Please mention Request in json format");
+        	return false;
+        }
+
+        try {
+        	JSON.parse(answer6);
+        } catch (error) {
+        	alert("Please mention Request in json format");
+        	return false;
+        }
+
+
+		if (error_count == 1) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+</script>
+{% endblock content %}
+
+
+
+
+

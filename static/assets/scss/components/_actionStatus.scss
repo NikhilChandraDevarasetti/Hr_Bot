@@ -1,0 +1,18 @@
+.action-status{
+    width: 90%;
+    border-radius: 4px;
+    text-align: center;
+    padding: 5px;
+    text-transform: capitalize;
+    // margin-bottom: 10px;
+}
+.onproduction-status{
+    color: #1a9c25;
+    // background-color: #c3fcc8;
+}
+.rejected-status{
+    color: #dd1c1a;
+}
+.staging-status{
+    color: #e2a837;
+}

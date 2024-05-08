@@ -1,0 +1,489 @@
+{% extends "layout/base.html" %}
+{% block content %}
+<div class="intent-info w-100">
+    <div class="cards intent-info__model active-model">
+        <h3>Active Model On Environment</h3>
+        <div class="w-100 table-wrapper">
+            <table class="table table-responsive w-100 intent-data mb-0">
+                <thead>
+                    <tr>
+                        <th rowspan="2" class="text-center"> ID </th>
+                        <th rowspan="2"> Model Name </th>
+                        <th rowspan="2"> Status </th>
+                        <th rowspan="2"> Trained Date/By </th>
+                        <th rowspan="2"> Running Status </th>
+                        <th colspan="2" class="text-center pt-2"> Staging </th>
+                        <th colspan="2" class="text-center pt-2"> Production </th>
+                        <th rowspan="2"> Action </th>
+                    </tr>
+                    <tr>
+                        <th> Active Count </th>
+                        <th> Inactive Count </th>
+                        <th> Active Count </th>
+                        <th> Inactive Count </th>
+                    </tr>
+                </thead>
+                <tbody>
+                   {% for item in data %}
+                   <tr>
+                        <td class="text-center border-start-0"> {{item[0]}} </td>
+                        <td> <span class="text-capitalize"> {{item[1]}} </span> </td>
+                        <td class="text-center">
+                            {% if item[2] == "1" %}
+                            <div class="text-capitalize status-badge"> Trained </div>
+                            {% elif item[2] == "3" %}
+                            <div class="text-capitalize status-badge"> Trained </div>
+                            {% else %}
+                            <div class="text-capitalize status-badge"> Trained </div>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <span> {{item[3]}}/{{item[4]}} </span>
+                        </td>
+                        <td> <span>{% if item[6]=="2" %} Staging {% elif item[6] == '3' %} Both {% elif item[6] == '1' %} Production {% else %}No{%endif%}</span> </td>
+                        <td class="text-center">
+                            <span class="staging-counts" onclick="view_intent('{{item[7]}}','1')"> {{item[8]}} </span>
+                        </td>
+                        <td class="text-center border-start-0">
+                            <span class="staging-counts" onclick="view_intent('{{item[7]}}','2')"> {{item[9]}} </span>
+                        </td>
+                        <td class="text-center">
+                            <span class="staging-counts" onclick="view_intent('{{item[7]}}','3')"> {{item[10]}} </span>
+                        </td>
+                        <td class="text-center border-start-0">
+                            <span class="staging-counts" onclick="view_intent('{{item[7]}}','4')"> {{item[11]}} </span>
+                        </td>
+                        <td class="action-btn-wrapper">
+                           {% if session.role == "2" %}
+                                {% if item[6] == "3" or item[6] == "1" %}
+                                    <div class="d-flex action-popup__reject" >
+                                        <div class="action-status onproduction-status">On Production</div>
+                                    </div>
+                                {% elif item[2] == "3" %}
+                                    <div class="d-flex action-popup__reject" >
+                                        <p class="text-capitalize"> Deployment In Process </p>
+                                    </div>
+                                {%elif (stag_model_count != 0) and item[6] == "2" and item[13] == "0" %}
+                                    <button class="action-btn send-approval-btn" onclick="submit_approval('{{item[12]}}','{{item[13]}}')">Send For Approval</button>
+                                    <button class="action-btn revoke-btn" onclick="reject_intent('{{item[12]}}','{{item[1]}}')">Revoke</button>
+
+                                {%elif (stag_model_count != 0) and item[13] == "2" %}
+                                    <div class="d-flex action-popup__reject" >
+                                        <p class="text-capitalize"> Pending </p>
+                                    </div>
+                                {%elif item[6] == "2" and item[13] == "4" %}
+                                     <div class="action-status rejected-status">Rejected</div>
+                                {% endif %}
+                            {% else %}
+                                {%if item[6] == "3" or item[6] == "1" %}
+                                     <div class="d-flex action-popup__reject" >
+                                        <p class="text-capitalize"> On Production </p>
+                                    </div>
+                                {% elif item[2] == "3" %}
+                                    <div class="d-flex action-popup__reject" >
+                                        <p class="text-capitalize"> Deployment In Process </p>
+                                    </div>
+                                {%elif item[6] == "2" and item[13] == "0" %}
+                                     <div class="action-status staging-status">On Staging</div>
+                                {%elif item[6] == "2" and item[13] == "2" %}
+                                     <button class="action-btn production-btn" onclick="submit_prod('{{item[7]}}')">Deploy on Production</button>
+                                     <button class="action-btn revoke-btn" onclick="reject_intent('{{item[12]}}','{{item[1]}}')">Revoke</button>
+
+                                {% endif %}
+                            {% endif %}
+
+                        </td>
+                   </tr>
+                {% endfor %}
+                </tbody>
+           </table>
+        </div>
+    </div>
+    <div class="cards intent-info__model active-model">
+        <h3>Trained Models</h3>
+        <div class="w-100 table-wrapper">
+            <table class="table table-responsive w-100 intent-data mb-0">
+                <thead>
+                    <tr>
+                        <th rowspan="2" class="text-center"> ID </th>
+                        <th rowspan="2"> Model Name </th>
+                        <th rowspan="2"> Status </th>
+                        <th rowspan="2"> Trained Date/By </th>
+                        <th rowspan="2"> Running Status </th>
+                        <th colspan="2" class="text-center pt-2"> Staging </th>
+                        <th colspan="2" class="text-center pt-2"> Production </th>
+                        <th rowspan="2"> Action </th>
+                    </tr>
+                    <tr>
+                        <th> Active Count </th>
+                        <th> Inactive Count </th>
+                        <th> Active Count </th>
+                        <th> Inactive Count </th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for item in approve_data %}
+                   <tr>
+                        <td class="text-center border-start-0"> {{item[0]}} </td>
+                        <td> <span class="text-capitalize"> {{item[1]}} </span> </td>
+                        <td class="text-center">
+                            {% if item[2] == "1" %}
+                            <div class="text-capitalize status-badge"> Trained </div>
+                            {% elif item[2] == "3" %}
+                            <div class="text-capitalize status-badge"> Trained </div>
+                            {% else %}
+                            <div class="text-capitalize status-badge"> Trained </div>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <span> {{item[3]}}/{{item[4]}} </span>
+                        </td>
+                        <td> <span>{% if item[6]=="2" %} Staging {% elif item[6] == '3' %} Both {% elif item[6] == '1' %} Production {% else %}No{%endif%}</span> </td>
+                        <td class="text-center">
+                            <span class="staging-counts" onclick="view_intent('{{item[7]}}','1')"> {{item[8]}} </span>
+                        </td>
+                        <td class="text-center border-start-0">
+                            <span class="staging-counts" onclick="view_intent('{{item[7]}}','2')"> {{item[9]}} </span>
+                        </td>
+                        <td class="text-center">
+                            <span class="staging-counts" onclick="view_intent('{{item[7]}}','3')"> {{item[10]}} </span>
+                        </td>
+                        <td class="text-center border-start-0">
+                            <span class="staging-counts" onclick="view_intent('{{item[7]}}','4')"> {{item[11]}} </span>
+                        </td>
+                        <td class="action-btn-wrapper">
+                            {% if session.role == "2" %}
+                                {% if item[13] == "4" %}
+                                    <div class="action-status rejected-status">Rejected</div>
+                                {% elif item[13] == "5" %}
+                                    <button class="action-btn staging-btn" onclick="submit_stg('{{item[7]}}')">Deploy on Staging</button>
+                                {%elif stag_model_count == 0 %}
+                                    <div class="d-flex action-popup__approve" onclick="submit_stg('{{item[7]}}')">
+                                        <img src="static/assets/img/icons/tickmark_icon.svg" alt="tickmark icon">
+                                        <p class="text-capitalize"> Staging </p>
+                                    </div>
+                                {%elif (stag_model_count != 0) and item[13] == "0" %}
+                                    <button class="action-btn staging-btn" onclick="submit_stg('{{item[7]}}')">Deploy on Staging</button>
+                                {%elif (stag_model_count != 0) and item[13] == "6" %}
+                                {% endif %}
+                            {% else %}
+                                {% if item[13] == "5" %}
+                                    <button class="action-btn production-btn" onclick="submit_prod('{{item[7]}}')">Deploy on Production</button>
+                                {% elif item[13] == "4" %}
+                                    <div class="action-status rejected-status">Rejected</div>
+                                {%elif item[6] == "2" and item[13] == "0" %}
+                                     <div class="action-status staging-status">On Staging</div>
+                                {% else %}
+                                    <button class="action-btn staging-btn" onclick="submit_stg('{{item[7]}}')">Deploy on Staging</button>
+                                {% endif %}
+                            {% endif %}
+                        </td>
+                   </tr>
+                {% endfor %}
+                </tbody>
+           </table>
+        </div>
+    </div>
+</div>
+<div class="cards countDetailsPopup" id="countDetailsPopup">
+    <h4 class="countDetailsPopup__title text-capitalize mb-0">HR Policy</h4>
+    <p> Active Intent on Staging </p>
+    <span class="material-symbols-outlined countDetailsPopup__close">
+        close
+        </span>
+    <ul class="active-intent-list">
+        <li> <span>Additional_benefits</span> </li>
+        <li> <span>Appraisal</span> </li>
+        <li> <span>Ask_Mood</span> </li>
+        <li> <span>Attendance</span> </li>
+        <li> <span>Benefits</span> </li>
+        <li> <span>Declaration</span> </li>
+        <li> <span>Dependents_Benefits</span> </li>
+        <li> <span>Emp_Portal</span> </li>
+        <li> <span>Epf</span> </li>
+        <li> <span>Form_Sixteen</span> </li>
+        <li> <span>Goodbye</span> </li>
+        <li> <span>Greet</span> </li>
+        <li> <span>Health_Benefits</span> </li>
+        <li> <span>Hr_Portal</span> </li>
+    </ul>
+</div>
+<div id="vip">
+
+</div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+<script>
+	function checked_data(){
+		console.log("test")
+		if ($('.pick_up:checked').length == $('.pick_up').length) {
+			$('#all').prop('checked', true)
+		}else{
+			$('#all').prop('checked', false)
+		}
+	}
+	function view_intent(model_id,status){
+	    console.log('log')
+		$.ajax({
+			type: "POST",
+			url: "{{ url_for('training.view_intent', _external=True, _scheme= config['SSL_SECURITY']) }}",
+			data: { model_id: model_id, status: status},
+			success: function (result) {
+				$('#vip').html(result);
+				$("#kt_modal_view_users").modal('show')
+			}
+		});
+	}
+	function reject_intent(model_id,name){
+		$.ajax({
+			type: "POST",
+			url: "{{ url_for('intent.model_intent_list', _external=True, _scheme= config['SSL_SECURITY']) }}",
+			data: { model_id: model_id,name:name},
+			success: function (result) {
+				$('#reject_intent').html(result);
+				$("#intent_rejection").modal('show')
+			}
+		});
+	}
+	function revoke(model_id){
+		intent_list = []
+		var checkboxes = document.querySelectorAll('input[type=checkbox]:checked')
+		for (var i = 0; i < checkboxes.length; i++) {
+
+		  intent_list.push(checkboxes[i].value)
+		}
+		if(intent_list.includes("all")){
+			intent_list.shift()
+		}
+
+		console.log("welcome")
+		console.log(intent_list)
+
+		$.confirm({
+			title: 'Confirmation',
+			content: 'Do you want to Revoke selected intents?',
+			buttons: {
+				confirm: function () {
+					$.ajax({
+						type: "POST",
+						url: "{{ url_for('training.revoke', _external=True, _scheme= config['SSL_SECURITY']) }}",
+						data: { intent_list: intent_list,model_id:model_id},
+						success: function (result) {
+							console.log(result)
+							$("#intent_rejection").modal('hide')
+							setTimeout(function(){
+							   window.location.reload();
+							}, 5000);
+								toastr.options = {
+									"closeButton": true,
+									"debug": false,
+									"positionClass": "toast-top-right",
+									"onclick": null,
+									"showDuration": "1000",
+									"hideDuration": "1000",
+									"timeOut": "50000",
+									"extendedTimeOut": "1000",
+									"showEasing": "swing",
+									"hideEasing": "swing",
+									"showMethod": "show",
+									"hideMethod": "hide"
+								}
+							Command: toastr.success("Intent Revoke Successfully");
+						}
+					});
+				}
+			}
+		});
+	}
+
+
+	function submit_stg(id) {
+		$.confirm({
+			title: 'Confirmation',
+			content: 'Do you want to Deploy on Staging server?',
+			buttons: {
+				confirm: function () {
+					$.ajax({
+						type: "GET",
+						url: "{{ url_for('training.replace_stag', id=id, _external=True, _scheme= config['SSL_SECURITY']) }}",
+						success: function (result) {
+							if(typeof result === 'object'){
+								msg = "Anther model deployment is runnning";
+								toastr.options = {
+									"closeButton": true,
+									"debug": false,
+									"positionClass": "toast-top-right",
+									"onclick": null,
+									"showDuration": "1000",
+									"hideDuration": "1000",
+									"timeOut": "50000",
+									"extendedTimeOut": "1000",
+									"showEasing": "swing",
+									"hideEasing": "swing",
+									"showMethod": "show",
+									"hideMethod": "hide"
+								}
+								Command: toastr.warning(msg);
+							}else{
+								msg = "Model is Deploying";
+								setTimeout(function(){
+								   window.location.reload();
+								}, 5000);
+								toastr.options = {
+									"closeButton": true,
+									"debug": false,
+									"positionClass": "toast-top-right",
+									"onclick": null,
+									"showDuration": "1000",
+									"hideDuration": "1000",
+									"timeOut": "50000",
+									"extendedTimeOut": "1000",
+									"showEasing": "swing",
+									"hideEasing": "swing",
+									"showMethod": "show",
+									"hideMethod": "hide"
+								}
+								Command: toastr.success(msg);
+							}
+						}
+					});
+				},
+				cancel: function () {
+				}
+			}
+		});
+	}
+	function submit_prod(id) {
+		$.confirm({
+			title: 'Confirmation',
+			content: 'Do you want to Deploy on Production server?',
+			buttons: {
+				confirm: function () {
+					$.ajax({
+						type: "GET",
+						url: "{{ url_for('training.replace_model_prod', id=id, _external=True, _scheme= config['SSL_SECURITY']) }}",
+						success: function (result) {
+							if(typeof result === 'object'){
+								msg = "Anther model deployment is runnning";
+								toastr.options = {
+									"closeButton": true,
+									"debug": false,
+									"positionClass": "toast-top-right",
+									"onclick": null,
+									"showDuration": "1000",
+									"hideDuration": "1000",
+									"timeOut": "50000",
+									"extendedTimeOut": "1000",
+									"showEasing": "swing",
+									"hideEasing": "swing",
+									"showMethod": "show",
+									"hideMethod": "hide"
+								}
+								Command: toastr.warning(msg);
+							}else{
+								msg = "Model is Deploying On Production";
+								setTimeout(function(){
+								   window.location.reload();
+								}, 5000);
+								toastr.options = {
+									"closeButton": true,
+									"debug": false,
+									"positionClass": "toast-top-right",
+									"onclick": null,
+									"showDuration": "1000",
+									"hideDuration": "1000",
+									"timeOut": "50000",
+									"extendedTimeOut": "1000",
+									"showEasing": "swing",
+									"hideEasing": "swing",
+									"showMethod": "show",
+									"hideMethod": "hide"
+								}
+								Command: toastr.success(msg);
+							}
+						}
+					});
+				},
+				cancel: function () {
+				}
+			}
+		});
+	}
+
+	function submit_approval(id,status) {
+		$.confirm({
+			title: 'Confirmation',
+			content: 'Do you want to Continue?',
+			buttons: {
+				confirm: function () {
+					$.ajax({
+						type: "POST",
+						url: "{{ url_for('training.change_status', _external=True, _scheme= config['SSL_SECURITY']) }}",
+						data: { id: id, status: status },
+						success: function (result) {
+							msg = "Status is Changed";
+							setTimeout(function(){
+							   window.location.reload();
+							}, 5000);
+							toastr.options = {
+								"closeButton": true,
+								"debug": false,
+								"positionClass": "toast-top-right",
+								"onclick": null,
+								"showDuration": "1000",
+								"hideDuration": "1000",
+								"timeOut": "50000",
+								"extendedTimeOut": "1000",
+								"showEasing": "swing",
+								"hideEasing": "swing",
+								"showMethod": "show",
+								"hideMethod": "hide"
+							}
+							Command: toastr.success(msg);
+						}
+					});
+				},
+				cancel: function () {
+				}
+			}
+		});
+	}
+	function submit_reject(id,status) {
+		$.confirm({
+			title: 'Confirmation',
+			content: 'Do you want to Continue?',
+			buttons: {
+				confirm: function () {
+					$.ajax({
+						type: "POST",
+						url: "{{ url_for('training.reject_model', _external=True, _scheme= config['SSL_SECURITY']) }}",
+						data: { id: id, status: status },
+						success: function (result) {
+							msg = "Status is Changed";
+							setTimeout(function(){
+							   window.location.reload();
+							}, 5000);
+							toastr.options = {
+								"closeButton": true,
+								"debug": false,
+								"positionClass": "toast-top-right",
+								"onclick": null,
+								"showDuration": "1000",
+								"hideDuration": "1000",
+								"timeOut": "50000",
+								"extendedTimeOut": "1000",
+								"showEasing": "swing",
+								"hideEasing": "swing",
+								"showMethod": "show",
+								"hideMethod": "hide"
+							}
+							Command: toastr.success(msg);
+						}
+					});
+				},
+				cancel: function () {
+				}
+			}
+		});
+	}
+</script>
+{% endblock content %}

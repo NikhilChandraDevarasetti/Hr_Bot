@@ -1,0 +1,95 @@
+{% extends "layout/base.html" %}
+{% block content %}
+<style>
+	.minus-btn {
+		background-color: #FF0000;
+		margin-left: 10px;
+		width: 40px;
+		height: 38px;
+		border: none;
+		border-radius: 10px;
+		color: #ffffff;
+		display: flex;
+		align-items: center;
+	}
+
+	.upload-field-wrapper {
+		margin-top: 20px
+	}
+</style>
+<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+	<!--end::Toolbar-->
+	<!--begin::Post-->
+	<div class="post d-flex flex-column-fluid" id="kt_post">
+		<!--begin::Container-->
+		<div id="kt_content_container" class="container-xxl">
+
+			<div class="" id="" tabindex="-1" aria-hidden="true">
+				<!--begin::Modal dialog-->
+				<div class="">
+					<!--begin::Modal content-->
+					<div class="modal-content rounded">
+						<!--begin::Modal header-->
+						<!--begin::Modal body-->
+						<div class="modal-body scroll-y px-10 px-lg-15 pt-0 pb-15">
+							<!--begin:Form-->
+							<form id="kt_modal_new_target_form" class="form"
+								action="{{ url_for('document.validate_document', _external=True) }}" method="POST"
+								enctype="multipart/form-data">
+								<!--begin::Heading-->
+								<div class="mb-13 text-center">
+									<!--begin::Title-->
+									<h1 class="mb-3">Add Document</h1>
+									<!--end::Title-->
+									<!--begin::Description-->
+									<!--														<div class="text-muted fw-bold fs-5">If you need more info, please check-->
+									<!--														<a href="#" class="fw-bolder link-primary">Project Guidelines</a>.</div>-->
+									<!--end::Description-->
+								</div>
+								<!--end::Heading-->
+								<!--begin::Input group-->
+								<div class="row g-9 mb-8">
+									<!--begin::Label-->
+									<div class="col-md-6 fv-row">
+										<label class="d-flex align-items-center fs-6 fw-bold mb-2">
+											<span class="required">Document</span>
+										</label>
+										<!--end::Label-->
+										<input type="file" class="form-control form-control-solid"
+											placeholder="Upload Document" id="upload_document" name="upload_document"
+											accept=".doc,.docx" />
+									</div>
+									<div class="d-flex flex-column mb-8">
+										<label class="fs-6 fw-bold mb-2">Description</label>
+										<textarea class="form-control form-control-solid" rows="3" name="description"
+											id="description"
+											placeholder="Type description about the uploaded document"></textarea>
+									</div>
+
+									<!--end::Input group-->
+									<!--begin::Actions-->
+									<div class="text-center">
+										<button type="reset" id="kt_modal_new_target_cancel"
+											class="btn btn-light me-3">Cancel</button>
+										<button type="submit" id="send-document" class="btn btn-primary">
+											<span class="indicator-label">Submit</span>
+
+										</button>
+									</div>
+									<!--end::Actions-->
+							</form>
+							<!--end:Form-->
+						</div>
+						<!--end::Modal body-->
+					</div>
+					<!--end::Modal content-->
+				</div>
+				<!--end::Modal dialog-->
+			</div>
+			<!--end::Tables Widget 13-->
+		</div>
+		<!--end::Container-->
+	</div>
+	<!--end::Post-->
+</div>
+{% endblock content %}

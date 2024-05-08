@@ -1,0 +1,19 @@
+.main-content{
+    width: calc(100% - 240px);
+    height: 100%;
+    background: #F2F2F2;
+    padding: 44px 40px 44px 36px;
+    transition: width 0.5s linear;
+    overflow-y: auto;
+    margin-left: auto;
+    @include breakpoint(tablet) {
+        width: 100%;
+        padding: 44px 25px 44px 25px;
+    } 
+    @include breakpoint(mobile-l) {
+        padding: 44px 20px 44px 20px;
+     } 
+    @include breakpoint(mobile-m) {
+        padding: 44px 15px 44px 15px;
+     } 
+}

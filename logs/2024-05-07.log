@@ -1,0 +1,150 @@
+[07/05/2024 14:21:46] {/home/nikhil/Documents/neo_projects/hrbot_smart_document-master/app.py:285} INFO - Loading bot app.
+[07/05/2024 14:21:46] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:6001
+ * Running on http://192.168.1.155:6001
+[07/05/2024 14:21:46] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - [33mPress CTRL+C to quit[0m
+[07/05/2024 14:21:46] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO -  * Restarting with stat
+[07/05/2024 14:21:46] {/home/nikhil/Documents/neo_projects/hrbot_smart_document-master/app.py:285} INFO - Loading bot app.
+[07/05/2024 14:21:46] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} WARNING -  * Debugger is active!
+[07/05/2024 14:21:46] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO -  * Debugger PIN: 135-622-024
+[07/05/2024 14:22:16] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 14:22:16] "GET /testing HTTP/1.1" 200 -
+[07/05/2024 14:22:16] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 14:22:16] "[36mGET /static/assets/css/style.css HTTP/1.1[0m" 304 -
+[07/05/2024 14:22:16] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 14:22:16] "[36mGET /static/assets/img/icons/testing_environment.svg HTTP/1.1[0m" 304 -
+[07/05/2024 14:22:16] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 14:22:16] "[36mGET /static/assets/img/icons/create_story.svg HTTP/1.1[0m" 304 -
+[07/05/2024 14:22:16] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 14:22:16] "[36mGET /static/assets/js/logout_popup.js HTTP/1.1[0m" 304 -
+[07/05/2024 14:22:16] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 14:22:16] "[36mGET /static/assets/img/icons/send-icon.png HTTP/1.1[0m" 304 -
+[07/05/2024 14:22:16] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 14:22:16] "[36mGET /static/assets/fonts/proxima/ProximaNova-Regular.woff2 HTTP/1.1[0m" 304 -
+[07/05/2024 14:22:16] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 14:22:16] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[07/05/2024 14:22:27] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 14:22:27] "POST /bot_msg HTTP/1.1" 200 -
+[07/05/2024 14:22:35] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 14:22:35] "POST /bot_msg HTTP/1.1" 200 -
+[07/05/2024 14:23:11] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 14:23:11] "GET /add_document HTTP/1.1" 200 -
+[07/05/2024 14:23:11] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 14:23:11] "[36mGET /static/assets/img/icons/testing_environment.svg HTTP/1.1[0m" 304 -
+[07/05/2024 14:23:11] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 14:23:11] "[36mGET /static/assets/css/style.css HTTP/1.1[0m" 304 -
+[07/05/2024 14:23:11] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 14:23:11] "[36mGET /static/assets/img/icons/create_story.svg HTTP/1.1[0m" 304 -
+[07/05/2024 14:23:11] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 14:23:11] "[36mGET /static/assets/js/logout_popup.js HTTP/1.1[0m" 304 -
+[07/05/2024 14:23:11] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 14:23:11] "[36mGET /static/assets/fonts/proxima/ProximaNova-Regular.woff2 HTTP/1.1[0m" 304 -
+[07/05/2024 15:42:03] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 15:42:03] "GET /testing HTTP/1.1" 200 -
+[07/05/2024 15:42:03] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 15:42:03] "[36mGET /static/assets/css/style.css HTTP/1.1[0m" 304 -
+[07/05/2024 15:42:03] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 15:42:03] "[36mGET /static/assets/img/icons/testing_environment.svg HTTP/1.1[0m" 304 -
+[07/05/2024 15:42:03] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 15:42:03] "[36mGET /static/assets/img/icons/create_story.svg HTTP/1.1[0m" 304 -
+[07/05/2024 15:42:03] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 15:42:03] "[36mGET /static/assets/img/icons/send-icon.png HTTP/1.1[0m" 304 -
+[07/05/2024 15:42:03] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 15:42:03] "[36mGET /static/assets/js/logout_popup.js HTTP/1.1[0m" 304 -
+[07/05/2024 15:42:03] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 15:42:03] "[36mGET /static/assets/fonts/proxima/ProximaNova-Regular.woff2 HTTP/1.1[0m" 304 -
+[07/05/2024 15:44:33] {/home/nikhil/Documents/neo_projects/hrbot_smart_document-master/app.py:285} INFO - Loading bot app.
+[07/05/2024 15:44:33] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:6001
+ * Running on http://192.168.1.155:6001
+[07/05/2024 15:44:33] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - [33mPress CTRL+C to quit[0m
+[07/05/2024 15:44:33] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO -  * Restarting with stat
+[07/05/2024 15:44:33] {/home/nikhil/Documents/neo_projects/hrbot_smart_document-master/app.py:285} INFO - Loading bot app.
+[07/05/2024 15:44:33] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} WARNING -  * Debugger is active!
+[07/05/2024 15:44:33] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO -  * Debugger PIN: 135-622-024
+[07/05/2024 15:44:40] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 15:44:40] "GET /testing HTTP/1.1" 200 -
+[07/05/2024 15:44:40] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 15:44:40] "[36mGET /static/assets/img/icons/testing_environment.svg HTTP/1.1[0m" 304 -
+[07/05/2024 15:44:40] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 15:44:40] "[36mGET /static/assets/css/style.css HTTP/1.1[0m" 304 -
+[07/05/2024 15:44:40] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 15:44:40] "[36mGET /static/assets/js/logout_popup.js HTTP/1.1[0m" 304 -
+[07/05/2024 15:44:40] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 15:44:40] "[36mGET /static/assets/img/icons/create_story.svg HTTP/1.1[0m" 304 -
+[07/05/2024 15:44:40] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 15:44:40] "[36mGET /static/assets/img/icons/send-icon.png HTTP/1.1[0m" 304 -
+[07/05/2024 15:44:46] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 15:44:46] "POST /bot_msg HTTP/1.1" 200 -
+[07/05/2024 15:45:03] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 15:45:03] "GET /add_document HTTP/1.1" 200 -
+[07/05/2024 15:45:03] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 15:45:03] "[36mGET /static/assets/css/style.css HTTP/1.1[0m" 304 -
+[07/05/2024 15:45:03] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 15:45:03] "[36mGET /static/assets/img/icons/create_story.svg HTTP/1.1[0m" 304 -
+[07/05/2024 15:45:03] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 15:45:03] "[36mGET /static/assets/js/logout_popup.js HTTP/1.1[0m" 304 -
+[07/05/2024 15:45:03] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 15:45:03] "[36mGET /static/assets/img/icons/testing_environment.svg HTTP/1.1[0m" 304 -
+[07/05/2024 15:45:16] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/warnings.py:109} WARNING - /home/nikhil/Documents/neo_projects/hrbot_smart_document-master/controller/docs_to_json.py:172: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  main_df = main_df.append(dftemp, sort=False)
+
+[07/05/2024 15:45:16] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/warnings.py:109} WARNING - /home/nikhil/Documents/neo_projects/hrbot_smart_document-master/controller/docs_to_json.py:172: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  main_df = main_df.append(dftemp, sort=False)
+
+[07/05/2024 15:45:16] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 15:45:16] "[32mPOST /validate_document HTTP/1.1[0m" 302 -
+[07/05/2024 15:45:16] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 15:45:16] "GET /add_document HTTP/1.1" 200 -
+[07/05/2024 15:45:16] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 15:45:16] "[36mGET /static/assets/img/icons/create_story.svg HTTP/1.1[0m" 304 -
+[07/05/2024 15:45:16] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 15:45:16] "[36mGET /static/assets/css/style.css HTTP/1.1[0m" 304 -
+[07/05/2024 15:45:16] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 15:45:16] "[36mGET /static/assets/js/logout_popup.js HTTP/1.1[0m" 304 -
+[07/05/2024 15:45:16] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 15:45:16] "[36mGET /static/assets/img/icons/testing_environment.svg HTTP/1.1[0m" 304 -
+[07/05/2024 15:45:26] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 15:45:26] "GET /testing HTTP/1.1" 200 -
+[07/05/2024 15:45:26] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 15:45:26] "[36mGET /static/assets/img/icons/create_story.svg HTTP/1.1[0m" 304 -
+[07/05/2024 15:45:26] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 15:45:26] "[36mGET /static/assets/img/icons/send-icon.png HTTP/1.1[0m" 304 -
+[07/05/2024 15:45:26] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 15:45:26] "[36mGET /static/assets/img/icons/testing_environment.svg HTTP/1.1[0m" 304 -
+[07/05/2024 15:45:26] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 15:45:26] "[36mGET /static/assets/css/style.css HTTP/1.1[0m" 304 -
+[07/05/2024 15:45:26] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 15:45:26] "[36mGET /static/assets/js/logout_popup.js HTTP/1.1[0m" 304 -
+[07/05/2024 15:45:30] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 15:45:30] "POST /bot_msg HTTP/1.1" 200 -
+[07/05/2024 15:45:47] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 15:45:47] "POST /bot_msg HTTP/1.1" 200 -
+[07/05/2024 15:46:01] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 15:46:01] "POST /bot_msg HTTP/1.1" 200 -
+[07/05/2024 15:55:38] {/home/nikhil/Documents/neo_projects/hrbot_smart_document-master/app.py:285} INFO - Loading bot app.
+[07/05/2024 15:55:38] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:6001
+ * Running on http://192.168.1.155:6001
+[07/05/2024 15:55:38] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - [33mPress CTRL+C to quit[0m
+[07/05/2024 15:55:38] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO -  * Restarting with stat
+[07/05/2024 15:55:38] {/home/nikhil/Documents/neo_projects/hrbot_smart_document-master/app.py:285} INFO - Loading bot app.
+[07/05/2024 15:55:38] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} WARNING -  * Debugger is active!
+[07/05/2024 15:55:38] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO -  * Debugger PIN: 135-622-024
+[07/05/2024 16:02:28] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 16:02:28] "GET /testing HTTP/1.1" 200 -
+[07/05/2024 16:02:28] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 16:02:28] "[36mGET /static/assets/css/style.css HTTP/1.1[0m" 304 -
+[07/05/2024 16:02:28] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 16:02:28] "[36mGET /static/assets/img/icons/send-icon.png HTTP/1.1[0m" 304 -
+[07/05/2024 16:02:28] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 16:02:28] "[36mGET /static/assets/img/icons/testing_environment.svg HTTP/1.1[0m" 304 -
+[07/05/2024 16:02:28] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 16:02:28] "[36mGET /static/assets/img/icons/create_story.svg HTTP/1.1[0m" 304 -
+[07/05/2024 16:02:28] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 16:02:28] "[36mGET /static/assets/js/logout_popup.js HTTP/1.1[0m" 304 -
+[07/05/2024 16:02:28] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 16:02:28] "[36mGET /static/assets/fonts/proxima/ProximaNova-Regular.woff2 HTTP/1.1[0m" 304 -
+[07/05/2024 16:02:37] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 16:02:37] "POST /bot_msg HTTP/1.1" 200 -
+[07/05/2024 16:02:42] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 16:02:42] "GET /add_document HTTP/1.1" 200 -
+[07/05/2024 16:02:42] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 16:02:42] "[36mGET /static/assets/css/style.css HTTP/1.1[0m" 304 -
+[07/05/2024 16:02:42] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 16:02:42] "[36mGET /static/assets/js/logout_popup.js HTTP/1.1[0m" 304 -
+[07/05/2024 16:02:42] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 16:02:42] "[36mGET /static/assets/img/icons/create_story.svg HTTP/1.1[0m" 304 -
+[07/05/2024 16:02:42] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 16:02:42] "[36mGET /static/assets/img/icons/testing_environment.svg HTTP/1.1[0m" 304 -
+[07/05/2024 16:02:51] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/warnings.py:109} WARNING - /home/nikhil/Documents/neo_projects/hrbot_smart_document-master/controller/docs_to_json.py:172: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  main_df = main_df.append(dftemp, sort=False)
+
+[07/05/2024 16:02:51] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/warnings.py:109} WARNING - /home/nikhil/Documents/neo_projects/hrbot_smart_document-master/controller/docs_to_json.py:172: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  main_df = main_df.append(dftemp, sort=False)
+
+[07/05/2024 16:02:51] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 16:02:51] "[32mPOST /validate_document HTTP/1.1[0m" 302 -
+[07/05/2024 16:02:51] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 16:02:51] "GET /add_document HTTP/1.1" 200 -
+[07/05/2024 16:02:51] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 16:02:51] "[36mGET /static/assets/img/icons/testing_environment.svg HTTP/1.1[0m" 304 -
+[07/05/2024 16:02:51] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 16:02:51] "[36mGET /static/assets/img/icons/create_story.svg HTTP/1.1[0m" 304 -
+[07/05/2024 16:02:51] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 16:02:51] "[36mGET /static/assets/css/style.css HTTP/1.1[0m" 304 -
+[07/05/2024 16:02:51] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 16:02:51] "[36mGET /static/assets/js/logout_popup.js HTTP/1.1[0m" 304 -
+[07/05/2024 16:02:54] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 16:02:54] "GET /testing HTTP/1.1" 200 -
+[07/05/2024 16:02:54] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 16:02:54] "[36mGET /static/assets/css/style.css HTTP/1.1[0m" 304 -
+[07/05/2024 16:02:54] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 16:02:54] "[36mGET /static/assets/img/icons/create_story.svg HTTP/1.1[0m" 304 -
+[07/05/2024 16:02:54] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 16:02:54] "[36mGET /static/assets/img/icons/testing_environment.svg HTTP/1.1[0m" 304 -
+[07/05/2024 16:02:54] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 16:02:54] "[36mGET /static/assets/img/icons/send-icon.png HTTP/1.1[0m" 304 -
+[07/05/2024 16:02:54] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 16:02:54] "[36mGET /static/assets/js/logout_popup.js HTTP/1.1[0m" 304 -
+[07/05/2024 16:03:03] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 16:03:03] "POST /bot_msg HTTP/1.1" 200 -
+[07/05/2024 16:03:12] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 16:03:12] "POST /bot_msg HTTP/1.1" 200 -
+[07/05/2024 16:03:17] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 16:03:17] "GET /testing HTTP/1.1" 200 -
+[07/05/2024 16:03:17] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 16:03:17] "[36mGET /static/assets/css/style.css HTTP/1.1[0m" 304 -
+[07/05/2024 16:03:17] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 16:03:17] "[36mGET /static/assets/img/icons/testing_environment.svg HTTP/1.1[0m" 304 -
+[07/05/2024 16:03:17] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 16:03:17] "[36mGET /static/assets/img/icons/send-icon.png HTTP/1.1[0m" 304 -
+[07/05/2024 16:03:17] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 16:03:17] "[36mGET /static/assets/img/icons/create_story.svg HTTP/1.1[0m" 304 -
+[07/05/2024 16:03:17] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 16:03:17] "[36mGET /static/assets/js/logout_popup.js HTTP/1.1[0m" 304 -
+[07/05/2024 18:54:40] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 18:54:40] "GET /add_document HTTP/1.1" 200 -
+[07/05/2024 18:54:40] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 18:54:40] "[36mGET /static/assets/img/icons/create_story.svg HTTP/1.1[0m" 304 -
+[07/05/2024 18:54:40] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 18:54:40] "[36mGET /static/assets/img/icons/testing_environment.svg HTTP/1.1[0m" 304 -
+[07/05/2024 18:54:40] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 18:54:40] "[36mGET /static/assets/css/style.css HTTP/1.1[0m" 304 -
+[07/05/2024 18:54:40] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 18:54:40] "[36mGET /static/assets/js/logout_popup.js HTTP/1.1[0m" 304 -
+[07/05/2024 18:54:54] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/warnings.py:109} WARNING - /home/nikhil/Documents/neo_projects/hrbot_smart_document-master/controller/docs_to_json.py:172: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  main_df = main_df.append(dftemp, sort=False)
+
+[07/05/2024 18:54:54] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/warnings.py:109} WARNING - /home/nikhil/Documents/neo_projects/hrbot_smart_document-master/controller/docs_to_json.py:172: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  main_df = main_df.append(dftemp, sort=False)
+
+[07/05/2024 18:54:54] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 18:54:54] "[32mPOST /validate_document HTTP/1.1[0m" 302 -
+[07/05/2024 18:54:54] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 18:54:54] "GET /add_document HTTP/1.1" 200 -
+[07/05/2024 18:54:54] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 18:54:54] "[36mGET /static/assets/css/style.css HTTP/1.1[0m" 304 -
+[07/05/2024 18:54:54] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 18:54:54] "[36mGET /static/assets/img/icons/testing_environment.svg HTTP/1.1[0m" 304 -
+[07/05/2024 18:54:54] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 18:54:54] "[36mGET /static/assets/img/icons/create_story.svg HTTP/1.1[0m" 304 -
+[07/05/2024 18:54:54] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 18:54:54] "[36mGET /static/assets/js/logout_popup.js HTTP/1.1[0m" 304 -
+[07/05/2024 18:54:57] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 18:54:57] "GET /testing HTTP/1.1" 200 -
+[07/05/2024 18:54:57] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 18:54:57] "[36mGET /static/assets/css/style.css HTTP/1.1[0m" 304 -
+[07/05/2024 18:54:57] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 18:54:57] "[36mGET /static/assets/img/icons/create_story.svg HTTP/1.1[0m" 304 -
+[07/05/2024 18:54:57] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 18:54:57] "[36mGET /static/assets/img/icons/testing_environment.svg HTTP/1.1[0m" 304 -
+[07/05/2024 18:54:57] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 18:54:57] "[36mGET /static/assets/js/logout_popup.js HTTP/1.1[0m" 304 -
+[07/05/2024 18:54:57] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 18:54:57] "[36mGET /static/assets/img/icons/send-icon.png HTTP/1.1[0m" 304 -
+[07/05/2024 18:55:09] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 18:55:09] "POST /bot_msg HTTP/1.1" 200 -
+[07/05/2024 18:55:30] {/home/nikhil/.pyenv/versions/3.9.13/lib/python3.9/site-packages/werkzeug/_internal.py:224} INFO - 127.0.0.1 - - [07/May/2024 18:55:30] "POST /bot_msg HTTP/1.1" 200 -

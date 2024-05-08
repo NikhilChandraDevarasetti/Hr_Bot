@@ -1,0 +1,261 @@
+{% extends "layout/base.html" %}
+{% block content %}
+<style>
+	.chat-board__bottom #txtInput_stag {
+  line-height: 30px;
+  padding: 0 20px;
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 14px;
+  color: #707070;
+  margin-top:10px
+}
+.chat-board__tags{
+	margin-bottom: 10px
+}
+</style>
+<div class="row intent-info w-100">
+	<div class="staging-environment col-lg-6 d-flex align-items-end justify-content-center">
+		<div class="chat-board">
+			  <div class="chat-board__top">
+				<h3 class="top-heading mb-0">Staging Environment</h3>
+			  </div>
+			  <div class="chat-board__chatting-area" id="staging">
+				<div class="date-area ">
+				</div>
+				<div class="d-flex class particular-chat-wrapper">
+					<h4 class="chat user1  ">Welcome to NeoBot</h4>
+				</div>
+			  </div>
+			  <div class="chat-board__bottom">
+				<div class="chat-input  ">
+					<div class="input-sec">
+					  <input type="text" id="txtInput_stag" placeholder="Type a message..." autofocus />
+						<button type="button" onclick="send_msg_stag()" name="submit" id="press_enter_stag" hidden>SUBMIT</button>
+					</div>
+					<div class="send " onclick="check_data_stag()">
+					  <img src="static/assets/img/icons/send-icon.png" alt="send-icon">
+					</div>
+				</div>
+			  </div>
+		</div>
+		<div class="close-btn staging-close-btn">
+			<span class="material-symbols-outlined ">close</span></div>
+	</div>
+	
+
+<script>
+	$(".browse-btn").bind("click",function(){
+		$("#upload").click()
+	});
+
+	//Staging close button code
+	$(".staging-close-btn").click(function(){
+		$(".staging-environment .chat-board").toggle();
+		if($(".staging-close-btn span").text()=="close"){
+			$(".staging-close-btn span").text("chat");
+
+			//animation of icon of close button
+			$(".staging-close-btn span").css('transform','rotate(90deg)');
+			$('.staging-close-btn').animate(
+				{ deg: -90},
+				{
+				duration: 300,
+				step: function(now) {
+					$(this).css({ transform: 'rotate(' + now + 'deg)' });
+				}
+				}
+			);
+			$(".staging-environment").removeClass("justify-content-center");
+			$(".staging-environment").addClass("justify-content-end");
+		}
+		else{
+			$(".staging-close-btn span").text("close");
+
+			//animation of icon of close button
+			$(".staging-close-btn span").css('transform','rotate(-90deg)');
+			$('.staging-close-btn').animate(
+				{ deg: 0},
+				{
+				duration: 300,
+				step: function(now) {
+					$(this).css({ transform: 'rotate(' + now + 'deg)' });
+				}
+				}
+			);
+			$(".staging-environment").removeClass("justify-content-end");
+			$(".staging-environment").addClass("justify-content-center");
+		}
+	});
+
+	//Production close button code
+	$(".production-close-btn").click(function(){
+		$(".production-environment .chat-board").toggle();
+		if($(".production-close-btn span").text()=="close"){
+			$(".production-close-btn span").text("chat");
+
+			//animation of icon of close button
+			$(".production-close-btn span").css('transform','rotate(90deg)');
+			$('.production-close-btn').animate(
+				{ deg: -90},
+				{
+				duration: 300,
+				step: function(now) {
+					$(this).css({ transform: 'rotate(' + now + 'deg)' });
+				}
+				}
+			);
+			$(".production-environment").removeClass("justify-content-center");
+			$(".production-environment").addClass("justify-content-end");
+		}
+		else{
+			$(".production-close-btn span").text("close");
+
+			//animation of icon of close button
+			$(".production-close-btn span").css('transform','rotate(-90deg)');
+			$('.production-close-btn').animate(
+				{ deg: 0},
+				{
+				duration: 300,
+				step: function(now) {
+					$(this).css({ transform: 'rotate(' + now + 'deg)' });
+				}
+				}
+			);
+			$(".production-environment").removeClass("justify-content-end");
+			$(".production-environment").addClass("justify-content-center");
+		}
+	});
+
+</script>
+<script>
+    // document.querySelector('#video_').autoplay = false;
+
+    function send_msg(){
+        var msg = $('#txtInput').val()
+        len_count = $("#txtInput").val().length
+        if(len_count < 200 ){
+        	console.log(len_count)
+	        $("#txtInput").attr('disabled','disabled');
+    		console.log('helo000')
+    		console.log(len_count)
+    	}else{
+    		if(len_count > 200){
+    			$("#production").append("<div class='d-flex class particular-chat-wrapper'><h4 class='chat user1' >Chat message is too large </h4></div>")
+    		}else if(len_count == 0){
+    		}
+    		$('#production').scrollTop($('#production')[0].scrollHeight);
+    		console.log('else')
+    	}
+		if(msg != '' && len_count < 200 ) {
+		 $("#production").append("<div class='d-flex class particular-chat-wrapper'><h4 class='chat user2'>"+msg+"</h4></div>")
+         $('#txtInput').val("")
+         $('#txtInput').attr('disabled','disabled');
+			console.log('test')
+            $.ajax({
+                type: "POST",
+                url: "{{ url_for('bot_msg', _external=True, _scheme= config['SSL_SECURITY']) }}",
+                data: { msg: msg,type:'prod'},
+                success: function (result) {
+                	console.log(result)
+                	$("#txtInput").removeAttr('disabled');
+                    $("#production").append(result)
+                    $('#production').scrollTop($('#production')[0].scrollHeight);
+                }
+            });
+        }
+	}
+
+	function send_msg_stag(){
+        var msg = $('#txtInput_stag').val()
+        len_count = $("#txtInput_stag").val().length
+        if(len_count < 200 ){
+        	console.log(len_count)
+	        $("#txtInput_stag").attr('disabled','disabled');
+    		console.log(len_count)
+    	}else{
+    		if(len_count > 200){
+    			$("#staging").append("<div class='d-flex class particular-chat-wrapper'><h4 class='chat user1'>Chat message is too large </h4></div>")
+    		}else if(len_count == 0){
+    			console.log('testqqqqqqq')
+    		}
+    		$('#staging').scrollTop($('#staging')[0].scrollHeight);
+    		console.log('else')
+    	}
+		if(msg != '' && len_count < 200 ) {
+		 $("#staging").append("<div class='d-flex class particular-chat-wrapper'><h4 class='chat user2'>"+msg+"</h4></div>")
+         $('#txtInput_stag').val("")
+         $('#txtInput_stag').attr('disabled','disabled');
+			console.log('test')
+            $.ajax({
+                type: "POST",
+                url: "{{ url_for('bot_msg', _external=True, _scheme= config['SSL_SECURITY']) }}",
+                data: { msg: msg,type:'stag'},
+                success: function (result) {
+                	console.log(result)
+                	$("#txtInput_stag").removeAttr('disabled');
+                    $("#staging").append(result)
+                    $('#staging').scrollTop($('#staging')[0].scrollHeight);
+                }
+            });
+        }
+	}
+
+	function button_intent_stag(intent,title){
+        var msg = intent
+        console.log(msg)
+        $("#staging").append("<div class='d-flex class particular-chat-wrapper'><h4 class='chat user2'>"+title+"</h4></div>")
+		$('#txtInput_stag').val("")
+		$.ajax({
+			type: "POST",
+			url: "{{ url_for('bot_msg', _external=True, _scheme= config['SSL_SECURITY']) }}",
+			data: { msg: msg,type:'stag'},
+			success: function (result) {
+                $('#rm_stag').remove()
+				$("#staging").append(result)
+				$('#staging').scrollTop($('#staging')[0].scrollHeight);
+            }
+		});
+	}
+
+    function button_intent(intent,title){
+        var msg = intent
+        console.log(msg)
+        $("#production").append("<div class='d-flex class particular-chat-wrapper'><h4 class='chat user2'>"+title+"</h4></div>")
+		$('#txtInput').val("")
+		$.ajax({
+			type: "POST",
+			url: "{{ url_for('bot_msg', _external=True, _scheme= config['SSL_SECURITY']) }}",
+			data: { msg: msg,type:'prod'},
+			success: function (result) {
+                $('#rm_prod').remove()
+				$("#production").append(result)
+				$('#production').scrollTop($('#production')[0].scrollHeight);
+            }
+		});
+	}
+	function check_data(){
+		console.log('data')
+		$('#press_enter').click();
+	}
+	function check_data_stag(){
+		console.log('data')
+		$('#press_enter_stag').click();
+	}
+    $(document).ready(function(){
+    $('#txtInput').keypress(function(e){
+      if(e.keyCode==13)
+      $('#press_enter').click();
+    });
+    $('#txtInput_stag').keypress(function(e){
+      if(e.keyCode==13)
+      $('#press_enter_stag').click();
+    });
+    });
+</script>
+
+{% endblock content %}
+
+
+

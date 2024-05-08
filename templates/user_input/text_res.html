@@ -1,0 +1,52 @@
+{% if data != '1' %}
+<div class="form-field">
+    <label for="res_text_data" class="form-label mt-5">Responses Text<span>*</span></label>
+    <input type="text" class="form-control" name="res_text" id="res_text_data" placeholder="Enter Response">
+</div>
+{% endif %}
+
+{% if data == '1' %}
+	<div class="form-field" id="res_data">
+		<label for="res_text_data" class="form-label mt-5">Response Text<span>*</span></label>
+		<input type="text" class="form-control" placeholder="Enter Response" name="intentresponses_0" id="intentresponses_0">
+	</div>
+{% elif data == '2'%}
+	<div class="upload-field-wrapper" id = "res_data_buttons" >
+		<label for="intentresponses_payload_button_0" class="form-label">Button Intent<span>*</span></label>
+		<div class="d-flex">
+		<select id="intentresponses_payload_button_0" class="form-select form-control"  name="intentresponses_payload_button_0">
+			<option value=""> Select Response Type </option>
+			{% for item in data_button %}
+				<option value="{{item[1]}}"> {{item[1]}}</option>
+			{% endfor %}
+		</select>
+		</div>
+	</div>
+{% elif data == '3' %}
+	<div class="upload-field-wrapper" id="res_data_pdf">
+		<label for="res_text_data" class="form-label ">Upload PDF<span>*</span></label>
+		<input type="file" class="form-control" placeholder="Enter Responses" name="intentresponses_pdf_0" id="intentresponses_pdf_0">
+	</div>
+{% elif data == '4' %}
+	<div class="upload-field-wrapper" id="res_data_image">
+		<label for="res_text_data" class="form-label">Upload Image<span>*</span></label>
+		<input type="file" class="form-control" placeholder="Enter Responses" name="intentresponses_image_0" id="intentresponses_image_0">
+	</div>
+{% elif data == '5' %}
+	<div class="upload-field-wrapper" id="res_data_video">
+		<label for="res_text_data" class="form-label ">Upload Video<span>*</span></label>
+		<input type="file" class="form-control" placeholder="Enter Responses" name="intentresponses_video_0" id="intentresponses_video_0">
+	</div>
+{%endif%}
+
+{% if data == '2' %}
+	<input type="hidden" value="0" id="res_count_button">
+	<div class="add-new-wrapper w-100" onclick="res_add_field_button({{data}})">
+		<span class="add-new"> + Add New responses</span>
+	</div>
+{% else %}
+	<input type="hidden" value="0" id="res_count">
+	<div class="add-new-wrapper w-100" onclick="res_add_field({{data}})">
+		<span class="add-new"> + Add New responses</span>
+	</div>
+{% endif %}

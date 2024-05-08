@@ -1,0 +1,117 @@
+{% extends "layout/super_base.html" %}
+{% block content %}
+<style>
+	.has-error{
+	   border-color: red !important;
+	}
+</style>
+<div class="intent-info w-100">
+	<div class="create-intent-main">
+		<div class="tab-content" id="pills-tabContent">
+			<h1 class="d-flex align-items-center text-dark fw-bolder fs-3 my-1" >Create Role</h1>
+
+			<div class="add-singleintent">
+				<form onsubmit="return validateForm()" id="role_form" class="form" action="{{ url_for('admin.add_role', _external=True, _scheme= config['SSL_SECURITY']) }}" method="post">
+					<div class="mb-13 text-center">
+					</div>
+					<div class="row g-9 mb-8">
+						<div class="col-md-6 fv-row">
+							<label class="d-flex align-items-center fs-6 fw-bold mb-2">
+								<span class="required add-singleintent__title">Role Name</span>
+							</label>
+							<input id="name" type="text" class="form-control form-control-solid"
+								placeholder="Enter Name" name="name" />
+							<span  class="help-block " id="name_error" style="color:red;margin-top:5px;display:none">
+								Please Enter Name  </span>
+						</div>
+					</div>
+					<br><br>
+					<div class="row g-9 mb-8">
+						<label class="d-flex align-items-center fs-6 fw-bold mb-2">
+							<span class="required add-singleintent__title" >Access</span>
+						</label>
+						<br>
+						<div class="d-flex align-items-center">
+							<label class="form-check form-check-custom form-check-solid me-10">
+								<input class="form-check-input h-20px w-20px" type="checkbox" name="access[]" value="1">
+								<span class="form-check-label " style='font-size: large;'>Create Intent</span>&nbsp;&nbsp;
+							</label> 
+							<label class="form-check form-check-custom form-check-solid me-10">
+								<input class="form-check-input h-20px w-20px" type="checkbox" name="access[]" value="2">
+								<span class="form-check-label" style='font-size: large;'>Intent List</span>&nbsp;&nbsp;
+							</label> 
+							<label class="form-check form-check-custom form-check-solid me-10">
+								<input class="form-check-input h-20px w-20px" type="checkbox" name="access[]" value="3">
+								<span class="form-check-label" style='font-size: large;'>Training Status</span>&nbsp;&nbsp;
+							</label>
+							<label class="form-check form-check-custom form-check-solid me-10">
+								<input class="form-check-input h-20px w-20px" type="checkbox" name="access[]" value="4">
+								<span class="form-check-label" style='font-size: large;'>Pending List</span>&nbsp;&nbsp;
+							</label>
+							<label class="form-check form-check-custom form-check-solid me-10">
+								<input class="form-check-input h-20px w-20px" type="checkbox" name="access[]" value="5">
+								<span class="form-check-label" style='font-size: large;'>Untrained Query</span>&nbsp;&nbsp;
+							</label>
+							<label class="form-check form-check-custom form-check-solid me-10">
+								<input class="form-check-input h-20px w-20px" type="checkbox" name="access[]" value="6">
+								<span class="form-check-label" style='font-size: large;'>Chat Audit</span>&nbsp;&nbsp;
+							</label>
+							<label class="form-check form-check-custom form-check-solid me-10">
+								<input class="form-check-input h-20px w-20px" type="checkbox" name="access[]" value="7">
+								<span class="form-check-label" style='font-size: large;'>Testing</span>&nbsp;&nbsp;
+							</label>
+						</div>
+						
+						<span  class="help-block " id="access_error" style="color:red;margin-top:5px;display:none">
+								Please Select At least one Page  </span>
+
+					</div>
+					<br><br>
+					<div class="text-center">
+						<button type="submit" class="btn btn-primary">Submit
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	function validateForm() {
+		var answer1 = $('#name').val();
+        var answer1 = $.trim(answer1);
+		var error_count = 0;
+		let selectedItems = [];
+		var itemForm = document.getElementById('role_form');
+        var checkBoxes = itemForm.querySelectorAll('input[type="checkbox"]');
+        checkBoxes.forEach(item => {
+			if (item.checked) {
+				selectedItems.push(item);
+			}
+		});
+		if (answer1 == "" || answer1 == null) {
+        	$('#name').addClass("has-error");
+            $('#name_error').show();
+            error_count = 1;
+        } else {
+        	$('#name').removeClass("has-error");
+            $('#name_error').hide();
+        }
+
+		if (selectedItems.length < 1) {
+        	$('#access').addClass("has-error");
+            $('#access_error').show();
+            error_count = 1;
+        } else {
+        	$('#access').removeClass("has-error");
+            $('#access_error').hide();
+        }
+
+		if (error_count == 1) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+</script>
+{% endblock content %}

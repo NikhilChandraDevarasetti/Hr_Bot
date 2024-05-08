@@ -1,0 +1,12 @@
+@font-face {
+    font-family:$primary-font;
+    src: url('#{$fonts-path}/proxima/ProximaNova-Regular.eot');
+    src: local('Proxima Nova Regular'), local('ProximaNova-Regular'),
+        url('#{$fonts-path}/proxima/ProximaNova-Regular.eot?#iefix') format('embedded-opentype'),
+        url('#{$fonts-path}/proxima/ProximaNova-Regular.woff2') format('woff2'),
+        url('#{$fonts-path}/proxima/ProximaNova-Regular.woff') format('woff'),
+        url('#{$fonts-path}/proxima/ProximaNova-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}

@@ -1,0 +1,108 @@
+.table-title {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 27px;
+    color: $secondary-color;
+    padding-left: 15px;
+    margin-bottom: 15px;
+    @include breakpoint(mobile-xl) {
+           font-size: 16px;
+    }   
+}
+.table-btn-wrapper{
+    padding-right: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: end;
+    @include breakpoint(mobile-l) {
+        flex-direction: column;
+        text-align: end;
+        button{
+            margin-right: 0px;
+        }
+    }
+}
+.table-wrapper{
+    overflow-x: auto;
+    background-color: $white-color;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+.intent-data{
+    thead{
+        background: #F9FBFC;
+        height: 49px;
+        tr{
+            white-space: nowrap;
+            th{
+                padding: 0 15px 0 15px;
+                vertical-align: middle;
+                font-size: 1.4rem;
+                font-weight: 700;
+                color:#333333;
+                border: none;
+            }
+        }   
+    }
+    tbody{
+        tr{
+            td{
+                padding: 17px 15px;
+                border-bottom: none;
+                font-weight: 400;
+                font-size: 1.2rem;
+                color: #707070;
+                border-left: 1px solid rgba(112, 112, 112,0.2);
+                
+                &:first-child{
+                    border: none;
+                }
+                &.action-btn-wrapper{
+                    position: relative;
+                }
+            }
+        }
+        /* border-bottom:1px solid rgba(112, 112, 112,0.2); */
+    }
+    &.intent-list-table{
+        tbody{
+            tr:last-child{
+                border-bottom: 1px solid rgba(112, 112, 112,0.2);
+            }
+        }
+    }
+    &.untrained-table{
+        tbody{
+            tr{
+                td:nth-child(2){
+                    white-space: nowrap;
+                }
+                td:nth-child(3){
+                    width: 168px;
+                }
+                td{
+                    padding: 5px 15px;
+                    .select-field{
+                        background-image: url(../../assets/img/icons/select_arrow.svg);
+                        background-repeat: no-repeat;
+                        background-position: 96% 15px;
+                        background-size: 10px;
+                        appearance: none;
+                        width: 168px;
+                        background-color: #F5F5F5;
+                        font-size: 1.4rem;
+                        line-height: 20px;
+                        color: $secondary-color;
+                        font-weight: 400;
+                        padding: 10px 19px;
+                        border: transparent;
+                        border-radius: 10px;
+                        &:focus{
+                            outline: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

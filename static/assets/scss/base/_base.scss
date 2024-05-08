@@ -1,0 +1,27 @@
+*{
+    box-sizing: border-box;
+}
+html, body{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    font-size: 10px;
+}
+body{
+    font-family: 'proxima_nova';
+}
+.container-fluid{
+    height: 100vh;
+
+    .content-wrapper{
+        height: 100%;
+        @include breakpoint(large-desktop-min){
+            height: 100% !important;
+        }
+        overflow: hidden; 
+    }
+    .star-mark{
+        color: #FF4141;
+    }
+}

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23">
+  <g id="Dashboard" transform="translate(-0.344)" style="isolation: isolate">
+    <g id="Rectangle_1478" data-name="Rectangle 1478" transform="translate(5.344)" fill="#fff" stroke="#707070" stroke-width="1">
+      <rect width="13" height="17" stroke="none"/>
+      <rect x="0.5" y="0.5" width="12" height="16" fill="none"/>
+    </g>
+    <g id="Rectangle_1479" data-name="Rectangle 1479" transform="translate(0.344)" fill="#fff" stroke="#707070" stroke-width="1">
+      <rect width="4" height="17" stroke="none"/>
+      <rect x="0.5" y="0.5" width="3" height="16" fill="none"/>
+    </g>
+    <g id="Rectangle_1481" data-name="Rectangle 1481" transform="translate(5.344 19)" fill="#fff" stroke="#707070" stroke-width="1">
+      <rect width="18" height="4" stroke="none"/>
+      <rect x="0.5" y="0.5" width="17" height="3" fill="none"/>
+    </g>
+    <g id="Rectangle_1482" data-name="Rectangle 1482" transform="translate(19.344 5)" fill="#fff" stroke="#707070" stroke-width="1">
+      <rect width="4" height="4" stroke="none"/>
+      <rect x="0.5" y="0.5" width="3" height="3" fill="none"/>
+    </g>
+    <rect id="Rectangle_1480" data-name="Rectangle 1480" width="4" height="4" rx="2" transform="translate(19.344)" fill="#f12b20"/>
+    <g id="Rectangle_1485" data-name="Rectangle 1485" transform="translate(19.344 11)" fill="none" stroke="#f12b20" stroke-width="1">
+      <rect width="4" height="6" stroke="none"/>
+      <rect x="0.5" y="0.5" width="3" height="5" fill="none"/>
+    </g>
+    <rect id="Rectangle_1484" data-name="Rectangle 1484" width="4" height="4" transform="translate(0.344 19)" fill="#f12b20"/>
+  </g>
+</svg>

@@ -1,0 +1,209 @@
+{% extends "layout/super_base.html" %}
+{% block content %}
+
+<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+	<div class="toolbar" id="kt_toolbar">
+		<div id="kt_toolbar_container" class="containaer-fluid d-flex flex-stack">
+			<div data-kt-swapper="true" data-kt-swapper-mode="prepend"
+				data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}"
+				class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
+				<h1 class="d-flex align-items-center text-dark fw-bolder fs-3 my-1"></h1>
+				<span class="h-20px border-gray-200 border-start mx-4"></span>
+			</div>
+		</div>
+	</div>
+	<div class="post d-flex flex-column-fluid" id="kt_post">
+		<div id="kt_content_container" class="container-xxl">
+			<div class="card mb-5 mb-xl-8">
+				<div class="card-header border-0 pt-5">
+					<h3 class="card-title align-items-start flex-column">
+						<span class="card-label fw-bolder fs-3 mb-1">User List</span>
+						<span class="text-muted mt-1 fw-bold fs-7"></span>
+					</h3>
+					<div class="card-toolbar">
+<!--						<button class="text-uppercase btn-download" onclick="window.location.href='{{ url_for( 'admin.download_admin', _external=True, _scheme= config['SSL_SECURITY']) }}';"> download all </button>-->
+					</div>
+
+				</div>
+				<div class="card-body py-3">
+					<div class="table-responsive">
+						<table class="table align-middle gs-0 gy-4" id="intent">
+							<thead>
+								<tr class="fw-bolder text-muted bg-light">
+									<th class="min-w-20px">Id</th>
+									<th class="ps-4 min-w-125px rounded-start">Name</th>
+									<th class="min-w-125px">Username</th>
+									<th class="min-w-125px">Email-ID</th>
+									<th class="min-w-100px">Role</th>
+									<th class="min-w-100px">Password</th>
+									<th class="min-w-200px">Created Date/By</th>
+									<th class="min-w-50px">Action </th>
+								</tr>
+							</thead>
+							<tbody id="update_data">
+								{% for item in data %}
+								<tr>
+									<td>
+										<span class="text-dark fw-bolder  d-block mb-1 fs-6">{{item[0]}}</span>
+									</td>
+									<td>
+										<sapn class="text-dark fw-bolder  d-block mb-1 fs-6">{{item[1]}}</sapn>
+									</td>
+									<td>
+										<span class="text-dark fw-bolder  d-block mb-1 fs-6">{{item[2]}}</span>
+									</td>
+									<td>
+										<span class="text-dark fw-bolder  d-block mb-1 fs-6">{{item[3]}}</span>
+									</td>
+									<td>
+										<span class="text-dark fw-bolder  d-block mb-1 fs-6">{{item[4]}}</span>
+
+									</td>
+									<td>
+										<span class="text-dark fw-bolder  d-block mb-1 fs-6">{{item[9]}}</span>
+
+									</td>
+									<td>
+										<span class="text-dark fw-bolder  d-block mb-1 fs-6">{{item[6]}}</span>
+									</td>
+									<td class="action-btn-wrapper">
+										{% if item[8] != "1" %}
+										<div class="" >
+											<div class="d-flex align-items-baseline action-popup__edit" style="float:left;" >
+												<a href="{{ url_for('admin.update_user', id=item[7], _external=True, _scheme= config['SSL_SECURITY'] ) }}">
+												<img src="static/assets/img/icons/edit_icon.svg" alt="edit" style="width:20px;">
+												</a>
+											</div>
+											<div class="d-flex align-items-baseline action-popup__delete" onclick="window.location.href='{{ url_for( 'admin.delete_user', id=item[7], _external=True, _scheme= config['SSL_SECURITY']) }}';">
+												<img src="static/assets/img/icons/delete_icon.svg" alt="delete" style="width:17px;margin-left:5px">
+											</div>
+										</div>
+										{% endif %}
+									</td>
+
+								</tr>
+								{% endfor %}
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title">Model Training Details</h4>
+			</div>
+			<div class="modal-body">
+				<form id="kt_modal_new_target_form" class="form" method="post" enctype="multipart/form-data">
+					<div class="row g-9 mb-8">
+						<div class="col-md-6 fv-row">
+							<label class="d-flex align-items-center fs-6 fw-bold mb-2">
+								<span class="required">When to train model</span></label>
+							<div class="d-flex">
+								<div
+									class="form-check form-check-custom form-check-success form-check-solid form-check-sm me-7">
+									<input class="form-check-input" type="radio" checked="checked" value="default"
+										id="train_now" name="schedule_training" onclick="myFunction()">
+									<label class="form-check-label text-gray-700 fw-bold text-nowrap"
+										for="train_now">Now</label>
+								</div>
+								<div
+									class="form-check form-check-custom form-check-success form-check-solid form-check-sm me-7">
+									<input class="form-check-input" type="radio" value="default" id="train_later"
+										name="schedule_training" onclick="myFunction()">
+									<label class="form-check-label text-gray-700 fw-bold text-nowrap"
+										for="train_later">Scheduled</label>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6 fv-row" id="date_data" style="display:none">
+							<label class="required fs-6 fw-bold mb-2">Select Date</label>
+							<div class='input-group date' id='datetimepicker1'>
+								<input class="form-control" type="datetime-local" id="s_date" name="train_schedule_date"
+									value="yyyy-mm-dd" min="2022-08-25" max="2025-12-31" required />
+							</div>
+						</div>
+					</div>
+					<div class="d-flex flex-column mb-8">
+						<label class="fs-6 fw-bold mb-2">Model Name</label>
+						<input class="form-control form-control-solid ps-12 flatpickr-input active"
+							placeholder="Enter Model Name" name="model_name" id="model_name" type="text" required>
+						<input value="1" class="form-control form-control-solid ps-12 flatpickr-input active"
+							placeholder="Enter Model Name" name="r_status" id="r_status" type="hidden">
+						<span class="help-block " id="model_name_error" style="color:red;margin-top:5px;display:none">
+							Please Enter Model Name </span>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="submit" id="kt_modal_new_target_submit" class="btn btn-primary"
+					onclick="submit_req()">Submit</button>
+			</div>
+		</div>
+
+	</div>
+</div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+<script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.1.3/js/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript">
+	function submit_req() {
+		var currentdate = new Date();
+		model_name = $("#model_name").val();
+		r_status = $("#r_status").val();
+		if (r_status == 1) {
+			s_date = currentdate;
+		} else {
+			s_date = $("#s_date").val();
+		}
+		var error_count = 0;
+		if (model_name == "" || model_name == null) {
+			console.log('if')
+			$('#model_name_error').show();
+			error_count = 1;
+		} else {
+			console.log('else')
+			$('#model_name_error').hide();
+		}
+		if (error_count == 1) {
+			return false;
+		} else {
+			$.ajax({
+				type: "POST",
+				url: "{{ url_for('training.train_model', _external=True, _scheme= config['SSL_SECURITY']) }}",
+				data: { model_name: model_name, r_status: r_status, s_date: s_date },
+				success: function (result) {
+					console.log(result)
+					msg = "Model is Training";
+					$('#myModal').modal('hide')
+					$('#train_model').hide()
+					$('#update_data').html(result);
+					toastr.options = {
+						"closeButton": true,
+						"debug": false,
+						"positionClass": "toast-top-right",
+						"onclick": null,
+						"showDuration": "1000",
+						"hideDuration": "1000",
+						"timeOut": "50000",
+						"extendedTimeOut": "1000",
+						"showEasing": "swing",
+						"hideEasing": "swing",
+						"showMethod": "show",
+						"hideMethod": "hide"
+					}
+					Command: toastr.success(msg);
+				}
+			});
+		}
+	}
+</script>
+{% endblock content %}

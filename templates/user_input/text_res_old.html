@@ -1,0 +1,109 @@
+{% if data != '1' %}
+<div class="col-md-12 fv-row" >
+	<div class="col-md-6 fv-row" id="res_text">
+		<label class="d-flex align-items-center fs-6 fw-bold mb-2">
+			<span class="required">Response Text</span>
+		</label>
+		<input type="text" class="form-control form-control-solid"
+			placeholder="Enter Responses" name="res_text" id="res_text_data"/>
+		<span  class="help-block " id="text_0_error" style="color:red;margin-top:5px;display:none"> Please Enter Response  </span>
+	</div>
+</div>
+{% endif %}
+{% if data == '1' %}
+	<div class="col-md-6 fv-row" id="res_data">
+		<label class="d-flex align-items-center fs-6 fw-bold mb-2">
+			<span class="required">Responses</span>
+		</label>
+		<input type="text" class="form-control form-control-solid"
+			placeholder="Enter Responses" name="intentresponses_0" id="intentresponses_0"/>
+		<span  class="help-block " id="intentresponses_0_error" style="color:red;margin-top:5px;display:none"> Please Enter Response  </span>
+	</div>
+{% elif data == '2'%}
+		<div id = "res_data_buttons" class="col-md-6 fv-row">
+		<div class="col-md-5 fv-row" id="res_data_button_pick" style="display: inline-block;">
+			<label class="d-flex align-items-center fs-6 fw-bold mb-2">
+				<span class="required">Responses</span>
+			</label>
+			<input type="text" class="form-control form-control-solid"
+				placeholder="Enter Responses" name="intentresponses_button_0" id="intentresponses_button_0"/>
+			<span  class="help-block " id="intentresponses_button_0_error" style="color:red;margin-top:5px;display:none"> Please Enter Response  </span>
+		</div>
+		<div class="col-md-5 fv-row" id="res_data_payload_button" style="display: inline-block;float:right">
+			<label class="d-flex align-items-center fs-6 fw-bold mb-2">
+				<span class="required">Payload</span>
+			</label>
+			<select id="intentresponses_payload_button_0" class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Select Response Type" name="intentresponses_payload_button_0"  tabindex="-1" aria-hidden="true" data-kt-initialized="1">
+				{% for item in data_button %}
+					<option value="{{item[1]}}"> {{item[1]}}</option>
+				{% endfor %}
+			</select>
+			<span  class="help-block " id="intentresponses_payload_button_0_error" style="color:red;margin-top:5px;display:none"> Please Enter Payload  </span>
+		</div>
+		</div>
+{% elif data == '3' %}
+	<div class="col-md-6 fv-row" id="res_data_pdf">
+		<label class="d-flex align-items-center fs-6 fw-bold mb-2">
+			<span class="required">Responses</span>
+		</label>
+		<input type="file" class="form-control form-control-solid"
+			placeholder="Enter Responses" name="intentresponses_pdf_0" id="intentresponses_pdf_0"/>
+	</div>
+{% elif data == '4' %}
+	<div class="col-md-6 fv-row" id="res_data_image">
+		<label class="d-flex align-items-center fs-6 fw-bold mb-2">
+			<span class="required">Responses</span>
+		</label>
+		<input type="file" class="form-control form-control-solid"
+			placeholder="Enter Responses" name="intentresponses_image_0" id="intentresponses_image_0"/>
+	</div>
+{% elif data == '5' %}
+	<div class="col-md-6 fv-row" id="res_data_video">
+		<label class="d-flex align-items-center fs-6 fw-bold mb-2">
+			<span class="required">Responses</span>
+		</label>
+		<input type="file" class="form-control form-control-solid"
+			placeholder="Enter Responses" name="intentresponses_video_0" id="intentresponses_video_0"/>
+	</div>
+{%endif%}
+{% if data == '2' %}
+<div class="col-md-6 fv-row" style="margin-top: 59px;">
+	<input type="hidden" value="0" id="res_count_button">
+	<div class="card-toolbar">
+		<a href="javascript:void(0)" onclick="res_add_field_button({{data}})"
+			class="btn btn-sm btn-light-primary">
+			<span class="svg-icon svg-icon-2">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+					viewBox="0 0 24 24" fill="none">
+					<rect opacity="0.5" x="11.364" y="20.364" width="16" height="2"
+						rx="1" transform="rotate(-90 11.364 20.364)" fill="black" />
+					<rect x="4.36396" y="11.364" width="16" height="2" rx="1"
+						fill="black" />
+				</svg>
+			</span>
+			Add New Responses
+		</a>
+	</div>
+</div>
+{% else %}
+	<div class="col-md-6 fv-row" style="margin-top: 59px;">
+		<input type="hidden" value="0" id="res_count">
+		<div class="card-toolbar">
+			<a href="javascript:void(0)" onclick="res_add_field({{data}})"
+				class="btn btn-sm btn-light-primary">
+				<span class="svg-icon svg-icon-2">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+						viewBox="0 0 24 24" fill="none">
+						<rect opacity="0.5" x="11.364" y="20.364" width="16" height="2"
+							rx="1" transform="rotate(-90 11.364 20.364)" fill="black" />
+						<rect x="4.36396" y="11.364" width="16" height="2" rx="1"
+							fill="black" />
+					</svg>
+				</span>
+				Add New Responses
+			</a>
+		</div>
+	</div>
+{% endif %}
+
+

@@ -1,0 +1,333 @@
+[{
+  
+    "intent": "appraisal",
+    "response": [
+      "Every employee compensation will be reviewed on an annual basis and your salary may be adjusted depending upon various factors including your performance during the preceding performance period.Hope you have query has been resolved.If not mail your query to this email id hrm@neosoftmail.com or hrm@neosofttech.com. Will get back to you once we received an email."
+    ],
+    "description": "Testing",
+    "status": "2",
+    "p_status": "0",
+    "s_status": "0",
+    "nlu_id": 166633584532,
+    "query": [
+      "How about the appraisal at NeoSOFT?",
+      "What are the factors that effect performance appraisal",
+      "How often will be the appraisal?",
+      "what will be the appraisal for freshers?",
+      "What will be the apprisal for people working on bond or commitment?",
+      "appraisal",
+      "increment",
+      "what is appraisal process"
+    ],
+    "entities": [],
+    "timestamp": "2022-10-21T07:04:05.908385",
+    "user": "neosoft"
+  },{
+    
+    "intent": "ask_mood",
+    "response": [
+      "I am good. What about you ?"
+    ],
+    "description": "Testing",
+    "status": "2",
+    "p_status": "0",
+    "s_status": "0",
+    "nlu_id": 166633584530,
+    "query": [
+      "how are you ",
+      "is it going good ?",
+      "is it goig well?",
+      "is it okay ?",
+      "Are you okay ",
+      "How are you ?",
+      "what about you "
+    ],
+    "entities": [],
+    "timestamp": "2022-10-21T07:04:05.909980",
+    "user": "neosoft"
+  },{
+    
+    "intent": "goodbye",
+    "response": [
+      "Bye! Thank you for connecting with us",
+      "Have a nice day.",
+      "Thanks for reaching to us."
+    ],
+    "description": "Testing",
+    "status": "2",
+    "p_status": "0",
+    "s_status": "0",
+    "nlu_id": 166633584529,
+    "query": [
+      "bye",
+      "Bye",
+      "bye!",
+      "Bye!",
+      "goodbye",
+      "Goodbye",
+      "Good bye",
+      "Good Bye",
+      "Have a nice day",
+      "have a nice day",
+      "bii",
+      "see you later",
+      "See you later",
+      "cu",
+      "Bye",
+      "GOOD BYE",
+      "BYE"
+    ],
+    "entities": [],
+    "timestamp": "2022-10-21T07:04:05.912209",
+    "user": "neosoft"
+  },{
+    
+    "intent": "greet",
+    "response": [
+      "Good Morning. Please mention your name below.",
+      "Hello. May I know your name please ?",
+      "Hi ! Good morning ! Please enter your name below.\""
+    ],
+    "description": "Testing",
+    "status": "2",
+    "p_status": "0",
+    "s_status": "0",
+    "nlu_id": 166633584511,
+    "query": [
+      "hi",
+      "Hi",
+      "hey",
+      "Hey",
+      "hello",
+      "Hello",
+      "hello",
+      "Hello",
+      "hey there",
+      "Hey there",
+      "hii",
+      "Hii",
+      "hiiiiii",
+      "Hiiiiii",
+      "good morning",
+      "good evening",
+      "Good morning",
+      "GOOD EVENING",
+      "good afternoon",
+      "GOOD AFTERNOON"
+    ],
+    "entities": [],
+    "timestamp": "2022-10-21T07:04:05.913974",
+    "user": "neosoft"
+  },{
+  
+    "intent": "mood_great",
+    "response": [
+      "Great carry on ! Happy to hear that !"
+    ],
+    "description": "Testing",
+    "status": "2",
+    "p_status": "0",
+    "s_status": "0",
+    "nlu_id": 166633584521,
+    "query": [
+      "perfect",
+      "good",
+      "very good",
+      "great",
+      "amazing",
+      "wonderful",
+      "I am great",
+      "I am good",
+      "I'm good",
+      "nice",
+      "Nice"
+    ],
+    "entities": [],
+    "timestamp": "2022-10-21T07:04:05.915636",
+    "user": "neosoft"
+  },{
+    
+    "intent": "mood_unhappy",
+    "response": [
+      "Sorry to hear that . Hope you have great day ahead."
+    ],
+    "description": "Testing",
+    "status": "2",
+    "p_status": "0",
+    "s_status": "0",
+    "nlu_id": 166633584516,
+    "query": [
+      "I am sad today",
+      "feeling a bit down",
+      "sad",
+      "very sad",
+      "unhappy",
+      "bad",
+      "very bad",
+      "I am sad",
+      "my mood is bad"
+    ],
+    "entities": [],
+    "timestamp": "2022-10-21T07:04:05.917021",
+    "user": "neosoft"
+  },{
+    
+    "intent": "nlu_fallback",
+    "response": [
+      "I'm sorry, I didn't quite understand that !",
+      "Sorry, I couldn't understand . Please rephrase the sentence.",
+      "Sorry, Didn't get you.Please rephrase your sentence."
+    ],
+    "description": "Testing",
+    "status": "2",
+    "p_status": "0",
+    "s_status": "0",
+    "nlu_id": 166633584514,
+    "query": [
+      "I want to order food",
+      "abey adidis",
+      "dhadfdfhaiida",
+      "what is 2 +2 ?",
+      "who is the us president ?",
+      "what is month ?",
+      "what gone we eat today ?"
+    ],
+    "entities": [],
+    "timestamp": "2022-10-21T07:04:05.918330",
+    "user": "neosoft"
+  },{
+    
+    "intent": "notice_period",
+    "response": [
+      "According to company policy , employee needs to serve notice period as per mentioned in the bond paper.Hope your query has been resolved. If not mail your query to this email id hrm@neosoftmail.com or hrm@neosofttech.com. Will get back to you once we received an email."
+    ],
+    "description": "Testing",
+    "status": "2",
+    "p_status": "0",
+    "s_status": "0",
+    "nlu_id": 166633584515,
+    "query": [
+      "What  is duration of notice period ?",
+      "Will I get salary in notice period",
+      "Will there be a buyout of notice period possibility?",
+      "Can i avail leaves in my notice period ?",
+      "notice period",
+      "What is notice period",
+      "How many months of notice period I need to serve",
+      "Notice period",
+      "NOTICE PERIOD"
+    ],
+    "entities": [],
+    "timestamp": "2022-10-21T07:04:05.919775",
+    "user": "neosoft"
+  },{
+    
+    "intent": "resignation",
+    "response": [
+      "If you want to resign from your job/position, you need to send resignation email from official email to your HR, TL & manager.Hope your query has been resolved.If not mail your query to this email id hrm@neosoftmail.com or hrm@neosofttech.com. Will get back to you once we received an email."
+    ],
+    "description": "Testing",
+    "status": "2",
+    "p_status": "0",
+    "s_status": "0",
+    "nlu_id": 166633584534,
+    "query": [
+      "when will i get the relieving letter?",
+      "whom should i email in case of resignation?",
+      "What is the process for resignation",
+      "Resignation",
+      "Resign",
+      "Can I resign during bond  period",
+      "Do I need to submit any documents for resignation",
+      "resigning"
+    ],
+    "entities": [],
+    "timestamp": "2022-10-21T07:04:05.921278",
+    "user": "neosoft"
+  },{
+    
+    "intent": "sick_leave",
+    "response": [
+      "Employee can take maximum of 12 days of sick leaves or unplanned leaves.Please apply on MIS portal for the same.Hope your query has been resolved.If not mail your query to this email id hrm@neosoftmail.com or hrm@neosofttech.com. Will get back to you once we received an email."
+    ],
+    "description": "Testing",
+    "status": "2",
+    "p_status": "0",
+    "s_status": "0",
+    "nlu_id": 166633584522,
+    "query": [
+      "Can employee take sick leave",
+      "How many sick leave I can take",
+      "What is maximum number of sick leave I can take",
+      "sick leave",
+      "sick leaves",
+      "where I can apply for sick leave ?",
+      "do I need to apply beforehand for sick leave ?\"",
+      "health issue",
+      "I am not well",
+      "I need sick leave",
+      "feeling ill",
+      "I have query regarding sick leave",
+      "SICK LEAVE",
+      "I want to raise a ticket regarding sick leave",
+      "I have a fever & cold"
+    ],
+    "entities": [],
+    "timestamp": "2022-10-21T07:04:05.922636",
+    "user": "neosoft"
+  },{
+    
+    "intent": "supply_employee_email",
+    "response": [
+      "We have recorded your email id i.e {email}.Please mention your query below"
+    ],
+    "description": "Testing",
+    "status": "2",
+    "p_status": "0",
+    "s_status": "0",
+    "nlu_id": 166633584513,
+    "query": [
+      "My email id is [prachi.kedar@neosoftmail.com](email)",
+      "email: [vibha.rawan@neosoftmail.com](email)",
+      "It's [sumit.desai@neosofttech.com](email)",
+      "[arun.nadar@neosofttech.com](email)",
+      "Sure, it's [rohan.dhere@neosoftmail.com](email)",
+      "[prachi.kedar@neosoftmail.com](email)",
+      "it is [akash.yadav@gmail.com](email)",
+      "sure,it's [tanzilkshekason34@gmail.com](email)"
+    ],
+    "entities": [
+      "email"
+    ],
+    "timestamp": "2022-10-21T07:04:05.924003",
+    "user": "neosoft"
+  },{
+    
+    "intent": "supply_employee_name",
+    "response": [
+      "Thanks {PERSON}. May I know your email id please?",
+      "Nice to see you {PERSON}. Please mention your email id as well.",
+      "Welcome {PERSON}. Please enter your email id below."
+    ],
+    "description": "Testing",
+    "status": "2",
+    "p_status": "0",
+    "s_status": "0",
+    "nlu_id": 166633584540,
+    "query": [
+      "My name is [John](PERSON)",
+      "name: [David](PERSON)",
+      "Yeah sure. I'm [Barbara](PERSON)",
+      "[Susan](PERSON)",
+      "Sure. It's [Fred](PERSON)",
+      "I am [Prachi](PERSON)",
+      "I'm [Vibha](PERSON)",
+      "It's [prachi](PERSON)"
+    ],
+    "entities": [
+      "PERSON"
+    ],
+    "timestamp": "2022-10-21T07:04:05.925423",
+    "user": "neosoft"
+  }]
+  

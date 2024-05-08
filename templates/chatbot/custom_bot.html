@@ -1,0 +1,69 @@
+{% extends "layout/base.html" %}
+{% block content %}
+<link href="static/css/style.css" rel="stylesheet" type="text/css" />
+<div class="container h-100">
+    <div class="row align-items-center h-100">
+        <div class="col-md-8 col-sm-12 mx-auto">
+            <div class="h-100 justify-content-center">
+                <div class="chat-container" style="overflow: auto; max-height: 80vh">
+                    <!-- chat messages -->
+                    <div class="chat-message col-md-5 offset-md-7 bot-message">
+                      Welcome to Custom chatbot. How can I help you?
+                    </div>
+                </div>
+                <input class="input" type="text" value="" placeholder="Enter message..." id="input_msg"/>
+                <button type="button" onclick="send_msg()" name="submit" id="press_enter" hidden>SUBMIT</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // document.querySelector('#video_').autoplay = false;
+
+    function send_msg(){
+        var msg = $('#input_msg').val()
+        console.log(msg)
+		if(msg != ''){
+            $.ajax({
+                type: "POST",
+                url: "{{ url_for('bot_msg', _external=True, _scheme= config['SSL_SECURITY']) }}",
+                data: { msg: msg},
+                success: function (result) {
+                    console.log(result)
+                    $(".chat-container").append("<div class='chat-message col-md-5 offset-md-7 bot-message'>"+msg+"</div>")
+                    // $(".chat-container").append("<div class='chat-message col-md-5 human-message'>"+result+"</div>")
+                    $(".chat-container").append(result)
+                    $('#input_msg').val("")
+                }
+            });
+        }
+	}
+
+    function button_intent(intent,title){
+        var msg = intent
+        console.log(msg)
+		$.ajax({
+			type: "POST",
+			url: "{{ url_for('bot_msg', _external=True, _scheme= config['SSL_SECURITY']) }}",
+			data: { msg: msg},
+			success: function (result) {
+                $('.but_rem').remove()
+                $(".chat-container").append("<div class='chat-message col-md-5 offset-md-7 bot-message'>"+title+"</div>")
+                $(".chat-container").append(result)
+                $('#input_msg').val("")
+                
+            }
+		});
+	}
+
+    $(document).ready(function(){
+    $('#input_msg').keypress(function(e){
+      if(e.keyCode==13)
+      $('#press_enter').click();
+    });
+    });
+</script>
+
+{% endblock content %}
+

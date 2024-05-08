@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base href="/">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Dashboard </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/assets/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+</head>
+<body data-new-gr-c-s-check-loaded="14.1091.0" data-gr-ext-installed="">
+    <div class="container-fluid p-0">
+        <div class="d-flex flex-nowrap content-wrapper">
+            <div class="sidenav" id="sidenav">
+                <div class="logo-wrapper d-flex justify-content-between align-items-center">
+                    <a href="#" class="logo d-flex flex-nowrap align-items-center" id="logo">
+                        <span class="text-uppercase logo__name"> NS </span>
+                        <span class="ms-2 mb-0 logo__chat"> Chatbot </span>
+                    </a>
+                    <div class="toggle_btn open" id="toggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="menu-wrapper">
+                    <ul class="navbar-nav">
+                        <li class="nav-item ">
+                            <a href="http://127.0.0.1:6001/author" class="nav-link">
+                                <img src="static/assets/img/icons/dashboard.svg" alt="dashboard">
+                                <span class="text-capitalize"> Dashboard </span>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="http://127.0.0.1:6001/bulk_intent" class="nav-link">
+                                <img src="static/assets/img/icons/create_intent.svg" alt="create intent">
+                                <span class="text-capitalize"> create intent </span>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="http://127.0.0.1:6001/display_intents" class="nav-link">
+                                <img src="static/assets/img/icons/intent_list.svg" alt="intent list">
+                                <span class="text-capitalize"> intent list </span>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="http://127.0.0.1:6001/training_status" class="nav-link">
+                                <img src="static/assets/img/icons/trained_models.svg" alt="trained models">
+                                <span class="text-capitalize"> trained models </span>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="http://127.0.0.1:6001/intent_mapping" class="nav-link">
+                                <img src="static/assets/img/icons/untrained_query.svg" alt="untrained query">
+                                <span class="text-capitalize"> untrained query </span>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="http://127.0.0.1:6001/chat_list" class="nav-link">
+                                <img src="static/assets/img/icons/chat_audit.svg" alt="chat_audit">
+                                <span class="text-capitalize"> chat audit </span>
+                            </a>
+                        </li>
+                        <li class="nav-item  active ">
+                            <a href="http://127.0.0.1:6001/testing" class="nav-link">
+                                <img src="static/assets/img/icons/testing_environment.svg" alt="testing_environment">
+                                <span class="text-capitalize"> testing environment </span>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="http://127.0.0.1:6001/action_list" class="nav-link">
+                                <img src="static/assets/img/icons/custom_action.svg" alt="custom action">
+                                <span class="text-capitalize"> custom action </span>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="http://127.0.0.1:6001/display_stories" class="nav-link">
+                                <img src="static/assets/img/icons/create_story.svg" alt="create story">
+                                <span class="text-capitalize"> Story List </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+    <script src="static/bot.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

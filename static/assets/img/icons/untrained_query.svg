@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="23.515" height="22.751" viewBox="0 0 23.515 22.751">
+  <g id="Untrained_Query" data-name="Untrained Query" transform="translate(-35.485 -279.32)">
+    <g id="WorkFromHome" transform="translate(-12134.065 -3862.378)" style="mix-blend-mode: luminosity;isolation: isolate">
+      <g id="Ellipse_237" data-name="Ellipse 237" transform="translate(12178.366 4141.698)" fill="#fff" stroke="#707070" stroke-width="1">
+        <circle cx="6.5" cy="6.5" r="6.5" stroke="none"/>
+        <circle cx="6.5" cy="6.5" r="6" fill="none"/>
+      </g>
+      <g id="Ellipse_235" data-name="Ellipse 235" transform="translate(12172 4149.549)" fill="#fff" stroke="#ee2e2b" stroke-width="1">
+        <circle cx="4" cy="4" r="4" stroke="none"/>
+        <circle cx="4" cy="4" r="3.5" fill="none"/>
+      </g>
+      <path id="Path_8471" data-name="Path 8471" d="M12172.925,4162s-2.731,1.323-2.859,5.689" transform="translate(0 -4.285)" fill="none" stroke="#ee2e2b" stroke-linecap="round" stroke-width="1"/>
+      <path id="Path_8472" data-name="Path 8472" d="M12170.065,4162s2.731,1.323,2.859,5.689" transform="translate(7.918 -4.285)" fill="none" stroke="#ee2e2b" stroke-linecap="round" stroke-width="1"/>
+      <g id="Path_8473" data-name="Path 8473" transform="translate(12178.354 4156.898)" fill="#fff">
+        <path d="M 12.67637634277344 6.856064796447754 L 0.6233051419258118 6.856064796447754 L 2.035762786865234 0.500004768371582 L 14.08883380889893 0.500004768371582 L 12.67637634277344 6.856064796447754 Z" stroke="none"/>
+        <path d="M 2.436854362487793 1.000004768371582 L 1.246618270874023 6.356064796447754 L 12.27528476715088 6.356064796447754 L 13.46552085876465 1.000004768371582 L 2.436854362487793 1.000004768371582 M 1.634679794311523 4.76837158203125e-06 L 14.71213912963867 4.76837158203125e-06 L 13.07745933532715 7.356064796447754 L 0 7.356064796447754 L 1.634679794311523 4.76837158203125e-06 Z" stroke="none" fill="#707070"/>
+      </g>
+      <path id="Path_8474" data-name="Path 8474" d="M12178.469,4169l2.393.817" transform="translate(-2.06 -6.004)" fill="none" stroke="#707070" stroke-linecap="round" stroke-width="1"/>
+    </g>
+    <text id="_" data-name="?" transform="translate(50.311 289.598)" fill="#707070" font-size="10" font-family="Roboto-Regular, Roboto"><tspan x="-2.361" y="0">?</tspan></text>
+  </g>
+</svg>

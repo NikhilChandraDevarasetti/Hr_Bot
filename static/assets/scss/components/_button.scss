@@ -1,0 +1,83 @@
+.btn {
+    background-image: linear-gradient(to right, #EB0F5B, #F12B20);
+    color: white;
+    font-size: 1.5rem;
+    line-height: 20px;
+    font-weight: 400;
+    width: 248px;
+    height: 44px;
+    border-radius: 25px;
+    &:hover{
+        color: $Primary-color;
+        background: transparent;
+        border: 1px solid $Primary-color;
+    }
+
+}
+
+.btn-delete{
+    background-color: transparent;
+    color: $dark-gray-color;
+    font-size: 1.1rem;
+    width: 137px;
+    height: 29px;
+    border: 1px solid $dark-gray-color;
+    border-radius: 50px;
+    @include breakpoint(ipad-max) {
+        width: 120px;
+    }
+    @include breakpoint(mobile-xl) {
+        width: 100px;
+        font-size: .9rem;
+    }
+    @include breakpoint(mobile-l) {
+        margin-right: 20px;
+        margin-bottom: 10px;
+    }
+}
+.btn-download,.btn-train{
+    margin-left:10px;
+    background-image: linear-gradient(to right, #EB0F5B, #F12B20);
+    color: $white-color;
+    font-size: 1.1rem;
+    width: 137px;
+    height: 29px;
+    border-color: transparent;
+    border-radius: 50px;
+    @include breakpoint(ipad-max) {
+        width: 120px;
+    }
+    @include breakpoint(mobile-xl) {
+        width: 100px;
+        font-size: .9rem;
+    }
+    @include breakpoint(mobile-l) {
+        margin: 0px;
+        margin-bottom: 10px;
+    }
+    &:hover{
+        color: $Primary-color;
+        background: transparent;
+        border: 1px solid $Primary-color;
+    }
+}
+.btn-train{
+    background-image: linear-gradient(to right,$deep-blue-color,$blue-color);
+    margin-right: 10px;
+    &:hover{
+        color: $deep-blue-color;
+        background: transparent;
+        border: 1px solid $deep-blue-color;
+    }
+}
+.btn-action{
+    display: block;
+    margin: 0 auto;
+    padding: 0;
+    font-size: 20px;
+    line-height: 20px;
+    color: $dark-gray-color;
+    background: transparent;
+    border: none;
+    
+}

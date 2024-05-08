@@ -1,0 +1,180 @@
+.dashboard-header{
+    .dashboard__heading{
+        h1{
+            font-weight: 700;
+            font-size: 2.6rem;
+            color: $secondary-color;
+            @include breakpoint(mobile-xl) {
+               font-size: 2rem;
+            } 
+            @include breakpoint(mobile-l) {
+               font-size: 1.8rem;
+            } 
+            @include breakpoint(mobile-m) {
+               font-size: 1.6rem;
+            } 
+        }
+        p{
+            font-weight: 400;
+            font-size: 2rem;
+            color: $secondary-color;
+            @include breakpoint(mobile-l) {
+                font-size: 1.8rem;
+             } 
+             @include breakpoint(mobile-m) {
+                font-size: 1.1rem;
+             } 
+        }
+    }
+    .user-info{
+        .icon-help{
+            cursor: pointer;
+            img{
+                width: 45px;
+                height: 45px;
+                @include breakpoint(mobile-l) {
+                    width: 36px;
+                    height: 36px;
+                } 
+            }
+        }
+        .user-img{
+            cursor: pointer;
+            margin-left: 20px;
+            @include breakpoint(mobile-l) {
+                margin-left: 10px;
+            } 
+            
+            img{
+                width: 52px;
+                height: 52px;
+                border: 1px solid transparent;
+                border-radius: 15px;
+                @include breakpoint(mobile-l) {
+                    width: 45px;
+                    height: 45px;
+                } 
+            }
+        }
+        .logout-modal{
+            width: 250px;
+            // height: 130px;
+            background-color:$white-color;
+            position: fixed;
+            z-index: 1000;
+            top: 96px;
+            right:60px;
+            border-radius: 5px;
+            padding: 10px 10px 20px 10px;
+            display: none;
+            @include breakpoint(mobile-l) {
+                right: 40px;
+           } 
+            @include breakpoint(mobile-m) {
+                right: 30px;
+           } 
+            .user-info{
+                display: flex;
+                align-items: center;
+                margin-bottom: 20px;
+                .user-img{
+                    margin-left: 5px;
+                }
+                .user-name{
+                    font-weight: 700;
+                    font-size: 18px;
+                    padding-top: 10px;
+                    word-break: break-all;
+                    padding-right: 10px;
+                    margin-left: 15px;
+                }
+            }
+            .logout-btn{
+                width: 100%;
+                margin-bottom: 10px;
+                text-align: start;
+                padding: 5px;
+                border: none;
+                outline: none;
+                color: $secondary-color;
+                background:none ;
+                font-weight: 700;
+                font-size: 16px;
+                &:hover{
+                    color: $Primary-color;
+                }
+            }
+        }
+        .help-modal{
+            width: 250px;
+            // height: 130px;
+            background-color:$white-color;
+            position: fixed;
+            z-index: 1000;
+            top: 96px;
+            right:135px;
+            border-radius: 5px;
+            padding: 10px 10px 20px 10px;
+            display: none;
+            @include breakpoint(mobile-l) {
+                right: 40px;
+           } 
+            @include breakpoint(mobile-m) {
+                  right: 30px;
+             } 
+            .help-info{
+                display: flex;
+                align-items: center;
+                margin-bottom: 20px;
+                .icon-help{
+                    margin-left: 5px;
+                }
+                .help-heading{
+                    font-weight: 700;
+                    font-size: 18px;
+                    padding-top: 8px;
+                    margin-left: 5px;
+                    word-break: break-all;
+                    padding-left: 10px;
+                }
+            }
+                .video-btn{
+                width: 100%;
+                // margin-bottom: 10px;
+                text-align: start;
+                padding: 5px;
+                border: none;
+                outline: none;
+                color: $secondary-color;
+                background:none ;
+                font-weight: 700;
+                font-size: 16px;
+                &:hover{
+                    color: $Primary-color;
+                }
+                }
+        }
+    }
+}
+.open-icon{
+    // position: fixed;
+    // left: 35px;
+    // top: 15px;
+    // cursor: pointer;
+    // z-index: 1000;
+    font-weight: 700;
+    margin-right: 8px;
+    cursor: pointer;
+    span{
+        font-size: 32px;
+        @include breakpoint(mobile-l) {
+            font-size: 28px;
+        } 
+        @include breakpoint(mobile-m) {
+            font-size: 22px;
+        } 
+    }
+}
+.close-icon{
+    cursor: pointer;
+}

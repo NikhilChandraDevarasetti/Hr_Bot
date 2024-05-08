@@ -1,0 +1,12 @@
+<div class="upload-field-wrapper" id="res{{cnt}}">
+    <label for="intentresponses_payload_button_0" class="form-label">Button Intent<span>*</span></label>
+    <div class="d-flex">
+    <select id="intentresponses_payload_button_0" class="form-select form-control"  name="intentresponses_payload_button_0">
+        <option value=""> Select Response Type </option>
+        {% for item in data_button %}
+            <option value="{{item[1]}}"> {{item[1]}}</option>
+        {% endfor %}
+    </select>
+    <button class="minus-btn" onclick=res_rm('{{cnt}}')><span class="material-symbols-outlined"> remove</span></button>
+    </div>
+</div>

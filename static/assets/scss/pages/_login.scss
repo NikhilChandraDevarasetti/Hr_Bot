@@ -1,0 +1,91 @@
+.row {
+    .login-container{
+        padding: 35px 118px 35px 70px;
+        background-color: $light-gray-color;
+
+        @include breakpoint(ipad-max) {
+            padding-right: 70px;
+        } 
+        @include breakpoint(mobile-l) {
+            padding:35px 40px 35px 40px;
+        } 
+        @include breakpoint(mobile-m) {
+            padding:35px 20px 40px 20px;
+        } 
+
+        .logo{
+            text-decoration: none;
+
+            &__name{
+                width: 60px;
+                height: 50px;
+                background:$btn-background;
+                text-align: center;
+                font-size: 3rem;
+                font-weight: 400;
+                color: $white-color;
+                padding: 2px 0;
+            }
+            &__chat{
+                font-weight: 400;
+                font-size: 4rem;
+                color: $secondary-color;
+            }
+        }
+        .login-detail {
+            &__heading{
+                font-weight: 600;
+                font-size: 2.6rem;
+                color: $secondary-color;
+                margin-top: 50px;
+            }
+            &__subheading{
+                color: $secondary-color;
+                font-weight: 400;
+                font-size: 2rem;
+            }
+            & form{
+                margin-top: 50px;
+
+                & label{
+                    font-weight: 600;
+                    font-size: 1.5rem;
+                    color: $secondary-color;
+                    & span{
+                        color: #FF4141;
+                    }
+                }
+                & input{
+                    font-weight: 400;
+                    font-size: 1.4rem;
+                    color: $secondary-color;
+                    width: 100%;
+                    background-color: $white-color;
+                    border: 1px solid #D3D3D3;
+                    border-radius: 10px;
+                    padding: 10px 19px;
+                    margin: 7px 0 28px;
+                }
+                & input:focus{
+                    outline: none;
+                }
+                & input::placeholder{
+                    color: rgba(51,51,51, 50%);
+                }
+                & button{
+                    width: 126px;
+                    font-size: 1.1rem;
+                }
+            }
+        }
+    }
+    .login-back{
+        background: $white-color;
+        padding: 106px 0;
+        @include breakpoint(tablet) {
+            padding: 0px;
+        } 
+       
+    }
+
+}

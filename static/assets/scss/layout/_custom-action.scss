@@ -1,0 +1,54 @@
+.custom-action-main {
+     .custom-action {
+         width: 100%;
+         background-color: $white-color;
+         border-radius: 20px;
+         padding: 20px;
+ 
+         &__title {
+             font-size: 20px;
+             font-weight: 500;
+             line-height: 27px;
+             color: #333333;
+         }
+ 
+         .form-label {
+             font-size: 15px;
+             line-height: 20px;
+             color: #333333;
+             font-weight: 700;
+ 
+             span {
+                 color: #FF4141;
+ 
+             }
+         }
+ 
+         .form-control {
+             background-color: #F5F5F5;
+             font-size: 14px;
+             line-height: 20px;
+             color: #333333;
+             font-weight: 400;
+             padding: 8px 12px;
+             border-radius: 6px;
+         }
+         .form-select{
+             background-image: url(../../assets/img/icons/select_arrow.svg);
+             background-repeat: no-repeat;
+             background-position: 95% 15px;
+             background-size: 10px;
+             appearance: none;
+             -webkit-appearance: none;
+         }
+         .btn-wrapper {
+             display: flex;
+             justify-content: end;
+         }
+         .description {
+             resize: none;
+         }
+     }
+ }
+ 
+ 

@@ -1,0 +1,63 @@
+{% for one_res in bot_response %}
+    {% if 'text' in one_res %}
+        <div class='d-flex class particular-chat-wrapper'><h4 class='chat user1'>{{one_res.text}}</h4></div>
+    {% endif %}
+    {% if 'buttons' in one_res %}
+        {% if type == 'stag' %}
+            <div class="chat-board__tags d-flex flex-wrap" id="rm_stag">
+        {% else %}
+            <div class="chat-board__tags d-flex flex-wrap" id="rm_prod">
+        {% endif %}
+        {% for single in one_res.buttons %}
+            {% if type == 'stag' %}
+                <button class="tag-btn text-capitalize" onclick="button_intent_stag('{{single.payload}}','{{single.title}}')">{{single.title}}</button>
+            {% else %}
+                <button class="tag-btn text-capitalize" onclick="button_intent('{{single.payload}}','{{single.title}}')">{{single.title}}</button>
+            {% endif %}
+        {% endfor %}
+        </div>
+    {% endif %}
+
+    {% if 'image' in one_res %}
+        <img src={{one_res.image}} alt="bot images" width="50%" height="60%">
+    {% endif %}
+
+    {% if 'attachment' in one_res %}
+        {% if bot_response[0]['custom'] == 'pdf' %}
+
+            <p><a href={{bot_response[1].attachment}} download>Click here to download the pdf</a></p>
+        {% endif %}
+
+    {% endif %}
+
+    {% if 'attachment' in one_res %}
+        {% if bot_response[0]['custom'] == 'video' %}
+
+            <iframe width="320" height="240" class="embed-responsive-item behind" src="{{bot_response[1].attachment}}" type="video/mp4"></iframe>
+
+        {% endif %}
+    {% endif %}
+
+
+    <!-- For custom response -->
+
+    {% if 'custom' in one_res %}
+        {% if 'payload' in one_res.custom %}
+        {% if one_res.custom.payload == 'pdf_attachment' %}
+                <p><a href={{one_res.custom.url}} download>Click here to download the pdf</a></p>
+            {% endif %}
+        {% endif %}
+    {% endif %}
+
+    {% if 'attachment' in one_res %}
+        {% if one_res.attachment.type == 'video' %}
+            {% if 'avi' in one_res.attachment.payload.src %}
+                <video width="320" height="240" controls>
+                    <iframe class="embed-responsive-item behind" src="{{one_res.attachment.payload.src}}" type="video/mp4"></iframe>
+                </video> 
+            {% else %}
+                <iframe src="{{one_res.attachment.payload.src}}"></iframe>
+            {% endif %}
+        {% endif %}
+    {% endif %}
+{% endfor %}

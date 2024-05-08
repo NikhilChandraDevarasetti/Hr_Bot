@@ -1,0 +1,73 @@
+.train-model-wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.train-model{
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    position: fixed;
+    top: -420px;
+    // left: 38%;
+    padding: 20px;
+    margin: 15px;
+    background-color: $white-color;
+    transition: .3s top linear;
+    z-index: 9999;
+    &__header{
+     display: flex;
+     justify-content: space-between;
+     &-text{
+        font-weight: 700px;
+        font-size: 18px;
+        color:$dark-gray-color;
+     }
+     &-close{
+        cursor: pointer;
+     }
+    }
+    hr{
+        margin-bottom: 20px;
+    }
+    &__form{
+        .form-label{
+            font-size: 14px;
+            font-weight: 500;
+            span{
+                color: $red-color;
+            }
+        }
+        .form-check-input{
+            font-size: 12px;
+        }
+        .form-check-label{
+            font-size: 12px;
+            margin-right: 10px;
+        }
+        .description{
+            resize: none;
+        }
+        .btn-wrapper{
+            display: flex;
+            justify-content: end;
+            .submit-btn{
+                font-size: 12px;
+                padding: 5px 15px;
+                border: none;
+                background-color: $blue-color;
+                border-radius: 5px;
+                color: $white-color;
+                height: 28px;
+                &:hover{
+                    color: $blue-color;
+                    border: .5px solid $blue-color;
+                    background: transparent;
+                }
+            }
+        }
+        .date-content{
+            display: none;
+        }
+    }
+}

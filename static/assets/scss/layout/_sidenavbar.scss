@@ -1,0 +1,126 @@
+.sidenav{
+    width: 240px;
+     height: 100%;
+    background: #F5F5F5;
+    padding: 48px 15px 0 34px;
+    transition: width 0.5s linear;
+    position: fixed;
+    left: 0px;
+    z-index: 999;
+    @include breakpoint(tablet) {
+        left: -300px;
+    } 
+    .logo-wrapper{
+        .logo{
+            text-decoration: none;
+    
+            &__name{
+                width: 23px;
+                height: 19px;
+                background: linear-gradient(to bottom, #FA1B1B, #CE0F2C);
+                text-align: center;
+                font-size: 1.3rem;
+                font-weight: 400;
+                color: $white-color;
+            }
+            &__chat{
+                font-weight: 600;
+                font-size: 1.8rem;
+                color: $secondary-color;
+                line-height: 18px;
+            }
+        }
+        .toggle_btn{
+            width: 17px;
+            height: 15px;
+            cursor: pointer;
+            position: relative;
+            text-align: right;
+            span{
+                display: block;
+                position: absolute;
+                height: 1px;
+                min-height: 1px;
+                background: #707070;
+            }
+            span:first-child{
+                top: 0;
+                width: 100%;
+            }
+            span:nth-child(2){
+                top: 50%;
+                right: 0;
+                transform: translateY(-50%);
+                width: 70%;
+            }
+            span:nth-child(3){
+                bottom: 0;
+                width: 100%;
+            }
+        }
+    }
+    .menu-wrapper{
+        margin-top: 57px;
+        .navbar-nav{
+            .nav-item{
+                margin-bottom: 15px;
+                .nav-link{
+                    padding: 0;
+                    img{
+                        margin-right: 10px;
+                        filter: grayscale(1);
+                    }
+                    span{
+                        vertical-align: middle;
+                        font-weight: 700;
+                        font-size: 1.2rem;
+                        color: $secondary-color;
+                    }
+                }
+                &:hover{
+                    .nav-link img{
+                        filter: grayscale(0);
+                    }
+                    span{
+                        color: $Primary-color;
+                    }
+                }
+                &.active{
+                    .nav-link img{
+                        filter: grayscale(0);
+                    }
+                    span{
+                        color: $Primary-color;
+                    }
+                }
+            }
+        }
+    }
+
+    /* After Toggle style*/
+    &.close{
+        .logo-wrapper{
+            justify-content: center !important;
+        }
+        .nav-item{
+            text-align: center;
+            .nav-link{
+                img{
+                    display: block;
+                    margin: 0 auto !important;
+                }
+            }
+        }
+    }
+}
+
+// =====menu-icon=======
+
+.menu-icon{
+    display: none;   
+}
+@include breakpoint(tablet) {
+    .open-icon{
+        display: block;
+    }
+} 

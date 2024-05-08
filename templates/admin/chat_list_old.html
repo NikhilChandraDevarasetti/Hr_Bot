@@ -1,0 +1,146 @@
+{% extends "layout/base.html" %}
+{% block content %}
+<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">-->
+<link href="static/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+<link href="static/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+	<!--begin::Toolbar-->
+	<div class="toolbar" id="kt_toolbar">
+		<!--begin::Container-->
+		<div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
+			<!--begin::Page title-->
+			<div data-kt-swapper="true" data-kt-swapper-mode="prepend"
+				data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}"
+				class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
+				<!--begin::Title-->
+				<h1 class="d-flex align-items-center text-dark fw-bolder fs-3 my-1">Chat Audit</h1>
+				<!--end::Title-->
+				<!--begin::Separator-->
+				<span class="h-20px border-gray-200 border-start mx-4"></span>
+			</div>
+		</div>
+		<!--end::Container-->
+	</div>
+	<!--end::Toolbar-->
+	<!--begin::Post-->
+	<div class="post d-flex flex-column-fluid" id="kt_post">
+		<!--begin::Container-->
+		<div id="kt_content_container" class="container-xxl">
+
+			<div class="card mb-5 mb-xl-8">
+				<!--begin::Header-->
+				<div class="card-header border-0 pt-5">
+					<h3 class="card-title align-items-start flex-column">
+						<span class="card-label fw-bolder fs-3 mb-1">Chat Audit</span>
+						<span class="text-muted mt-1 fw-bold fs-7"></span>
+					</h3>
+
+					<div class="card-toolbar">
+
+						<a href="{{ url_for('intent.download_intents', _external=True, _scheme= config['SSL_SECURITY']) }}" class="btn btn-success" style="margin-left: 10px;">Download All</a>
+					</div>
+				</div>
+				<!--end::Header-->
+				<!--begin::Body-->
+				<div class="card-body py-3">
+					<!--begin::Table container-->
+					<div class="table-responsive">
+						<!--begin::Table-->
+						<table class="table align-middle gs-0 gy-4" id="intent">
+							<!--begin::Table head-->
+							<thead>
+								<tr class="fw-bolder text-muted bg-light">
+									<th class="min-w-20px">Id</th>
+									<th class="ps-4 min-w-125px rounded-start">Query</th>
+									<th class="ps-4 min-w-125px rounded-start">Response</th>
+									<th class="ps-4 min-w-125px rounded-start">Intent</th>
+								</tr>
+							</thead>
+							<!--end::Table head-->
+							<!--begin::Table body-->
+							<tbody id="update_data">
+								{% for item in data %}
+								<tr>
+									<td>
+										<span class="text-dark fw-bolder  d-block mb-1 fs-6">{{item[0]}}</span>
+									</td>
+									<td>
+										<span class="text-dark fw-bolder  d-block mb-1 fs-6">{{item[1]}}</span>
+									</td>
+									<td>
+										<sapn class="text-dark fw-bolder  d-block mb-1 fs-6">{{item[2]}}</sapn>
+									</td>
+                                    <td>
+										<sapn class="text-dark fw-bolder  d-block mb-1 fs-6">{{item[3]}}</sapn>
+									</td>
+								</tr>
+								{% endfor %}
+							</tbody>
+							<!--end::Table body-->
+						</table>
+						<!--end::Table-->
+					</div>
+					<!--end::Table container-->
+				</div>
+				<!--begin::Body-->
+			</div>
+
+			<!--end::Tables Widget 13-->
+		</div>
+		<!--end::Container-->
+	</div>
+	<!--end::Post-->
+</div>
+
+<!-- Modal -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+<script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.1.3/js/bootstrap-datetimepicker.min.js"></script>
+
+<script>
+	function update_intent_query(id){
+		console.log(id)
+		console.log($("#map_"+id).val())
+		intent_id = $("#map_"+id).val()
+		$.confirm({
+			title: 'Confirmation',
+			content: 'Do you want to Deploy on Staging server?',
+			buttons: {
+				confirm: function () {
+					$.ajax({
+						type: "POST",
+						url: "{{ url_for('intent.map_intent', _external=True, _scheme= config['SSL_SECURITY']) }}",
+						data: { q_id: id, intent_id: intent_id},
+						success: function (result) {
+							msg = "Intent is Mapped";
+							toastr.options = {
+								"closeButton": true,
+								"debug": false,
+								"positionClass": "toast-top-right",
+								"onclick": null,
+								"showDuration": "1000",
+								"hideDuration": "1000",
+								"timeOut": "50000",
+								"extendedTimeOut": "1000",
+								"showEasing": "swing",
+								"hideEasing": "swing",
+								"showMethod": "show",
+								"hideMethod": "hide"
+							}
+							Command: toastr.success(msg);
+						}
+					});
+				},
+				cancel: function () {
+				}
+			}
+		});
+
+	}
+</script>
+{% endblock content %}

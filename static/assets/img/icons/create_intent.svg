@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="22.311" height="23.872" viewBox="0 0 22.311 23.872">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_2048" data-name="Rectangle 2048" width="6" height="6" transform="translate(0.39 0.39)" fill="#707070"/>
+    </clipPath>
+  </defs>
+  <g id="Group_21567" data-name="Group 21567" transform="translate(1198 -1513)" style="mix-blend-mode: luminosity;isolation: isolate">
+    <g id="WFH_Reports" data-name="WFH Reports" transform="translate(-1193.21 1513.872)" style="mix-blend-mode: luminosity;isolation: isolate">
+      <g id="Rectangle_1464" data-name="Rectangle 1464" transform="translate(-0.479 0)" fill="#fff" stroke="#707070" stroke-width="1">
+        <rect width="18" height="23" rx="2" stroke="none"/>
+        <rect x="0.5" y="0.5" width="17" height="22" rx="1.5" fill="none"/>
+      </g>
+      <g id="Ellipse_228" data-name="Ellipse 228" transform="translate(-4.79 -0.872)" fill="#fff" stroke="#707070" stroke-width="1">
+        <ellipse cx="6.869" cy="6.869" rx="6.869" ry="6.869" stroke="none"/>
+        <ellipse cx="6.869" cy="6.869" rx="6.369" ry="6.369" fill="none"/>
+      </g>
+      <path id="Path_8485" data-name="Path 8485" d="M-16588.66,8597.1h2.264" transform="translate(16601.672 -8588.926)" fill="none" stroke="#f12b20" stroke-linecap="round" stroke-width="1"/>
+      <path id="Path_8486" data-name="Path 8486" d="M-16588.66,8597.1h2.264" transform="translate(16601.672 -8586.176)" fill="none" stroke="#f12b20" stroke-linecap="round" stroke-width="1"/>
+      <path id="Path_8487" data-name="Path 8487" d="M-16592.66,8597.1h6.264" transform="translate(16601.672 -8583.426)" fill="none" stroke="#f12b20" stroke-linecap="round" stroke-width="1"/>
+      <path id="Path_8488" data-name="Path 8488" d="M-16588.66,8597.1h9.945" transform="translate(16593.99 -8580.676)" fill="none" stroke="#f12b20" stroke-linecap="round" stroke-width="1"/>
+      <path id="Path_8489" data-name="Path 8489" d="M-16588.658,8597.1h12.666" transform="translate(16591.273 -8578.016)" fill="none" stroke="#f12b20" stroke-linecap="round" stroke-width="1"/>
+    </g>
+    <g id="Group_21566" data-name="Group 21566" transform="translate(-1194.39 1516.61)" clip-path="url(#clip-path)">
+      <path id="Path_8966" data-name="Path 8966" d="M7.08,6.39a.312.312,0,0,1-.312-.312V.312a.312.312,0,1,1,.624,0V6.078a.312.312,0,0,1-.312.312Z" transform="translate(-3.885)" fill="#707070"/>
+      <path id="Path_8967" data-name="Path 8967" d="M6.078,7.392H.312a.312.312,0,1,1,0-.624H6.078a.312.312,0,1,1,0,.624Z" transform="translate(0 -3.885)" fill="#707070"/>
+    </g>
+  </g>
+</svg>

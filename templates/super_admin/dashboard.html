@@ -1,0 +1,41 @@
+{% extends "layout/super_base.html" %}
+{% block content %}
+
+<div class="intent-info w-100">
+    <div class="intents d-flex gap-4 flex-wrap flex-xl-nowrap">
+        <div class="intents__total intents__com cards">
+            <h3 class="text-captalize"> <span>{{nlu_data_total}}</span> Total intents</h3>
+            <div class="d-flex flex-nowrap mt-3">
+                <div class="train-intent pt-3">
+                    <p class="text-capitalize intents__para mb-0"> Trained Intents </p>
+                    <span class="intents-counts"> {{nlu_data_trained}} </span>
+                </div>
+                <div class="untrain-intent pt-3">
+                    <p class="text-capitalize intents__para mb-0"> untrained Intents </p>
+                    <span class="intents-counts"> {{nlu_data_untrained}} </span>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="intents__active intents__com position-relative cards"> -->
+		<div class="intents__total intents__com cards">
+			<h3 class="text-captalize"> <span>{{user_total}}</span> Total Users </h3>
+            <div class="d-flex flex-nowrap mt-3">
+                <div class="train-intent pt-3">
+                    <p class="text-capitalize intents__para mb-0">Active Users </p>
+                    <span class="intents-counts"> {{user_active}} </span>
+                </div>
+                <div class="untrain-intent pt-3">
+                    <p class="text-capitalize intents__para mb-0"> Inactive Users </p>
+                    <span class="intents-counts"> {{user_inactive}} </span>
+                </div>
+            </div>
+        </div>
+        <div class="intents__active intents__active-second intents__com position-relative cards">
+            <h3 class="text-captalize mb-0"> Total Roles </h3>
+            <span class="intents__active-counts"> {{role_total}} </span>
+            
+        </div>
+    </div>
+
+</div>
+{% endblock content %}
