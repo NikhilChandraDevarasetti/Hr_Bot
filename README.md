@@ -24,6 +24,11 @@ Tools Used for  Deployment:
 
 - - - -
 
+### Smart Document Extractor Architecture: 
+
+![smart_document_architechture](https://github.com/NikhilChandraDevarasetti/Hr_Bot/assets/78791882/323d8da3-df75-430b-84fd-cfdbd72c804d)
+
+
 ### Project Setup
 
 To RUN this project install Docker on your system. Installation for docker can be found on this [link](https://docs.docker.com/engine/install/) .
